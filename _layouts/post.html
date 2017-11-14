@@ -8,39 +8,28 @@ route: blog
 
 <section class="section">
   <div class="container">
-    <div class="columns">
-      <div class="column">
-          <section class="hero is-{{ page.color }} bd-article-image is-bold">
-              <span class="bd-article-overlay"></span>
-              <span class="bd-article-icon">
-                <i class="fa fa-{{ page.icon }}"></i>
-              </span>
-              <div class="hero-body bd-article-info">
-                <div class="container">
-                  <span>
-                  <time class="bd-article-date" datetime="{{ page.date | date_to_xmlschema }}">
-                    {{ page.date | date_to_string }}
-                  </time>
-                  <strong class="bd-article-title">
-                    {{ page.name }}
-                  </strong>
-                  <br/>
-                  <br/>
-                  <div class="tags" style="display: block;">
-                    {% for category in page.categories %}
-                      <span class="tag is-dark">{{ category | capitalize }}</span>
-                    {% endfor %}
-                  </div>
-                  </span>
-                </div>
-              </div>
-            </section>
+    <div class="columns is-centered">
+      <div class="column is-9">
         <br/>
-        <div class="content is-medium">
+        <h1 class="title is-1 has-text-centered has-text-dark" >
+          {{ page.name }}
+        </h1>
+        &nbsp;
+        <div class="subtitle is-6 has-text-grey-light has-text-centered">
+          <em datetime="{{ page.date | date_to_xmlschema }}">
+            {{ page.date | date: '%B %d, %Y' }} &nbsp; | &nbsp;
+          </em>
+          {% for category in page.categories %}
+          <a class="has-text-grey-light is-capitalized" href="/category/{{ category }}">
+            <em>{{ category }}</em>
+          </a>
+          {% endfor %}
+        </div>
+        <br/>
+        <div class="content">
           {{ content }}
         </div>
       </div>
-      {% include menu.html %}
     </div>
   </div>
 </section>
