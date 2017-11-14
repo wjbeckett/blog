@@ -4,7 +4,6 @@ title: "Moving Nutanix to a New Data Center"
 introduction: "Generally, I dread moving Data Centers. This time, it was so simple and so fast I honestly wouldn’t mind doing it again."
 color: "link"
 name: "Moving Nutanix to a New Data Center"
-icon: "tag"
 categories: [nutanix]
 ---
 
