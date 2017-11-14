@@ -25,9 +25,9 @@ route: blog
             <em>{{ category }}</em>
           </a>
           {% endfor %}-->
-          {% if page.category %}
+          {% if page.categories %}
           <a class="has-text-grey-light is-capitalized" href="/category/{{ category }}">
-            <em>{{ page.category }}</em>
+            <em>{{ page.categories }}</em>
           </a>
           {% endif %}
         </div>
