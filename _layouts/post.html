@@ -19,17 +19,12 @@ route: blog
           <em datetime="{{ page.date | date_to_xmlschema }}">
             {{ page.date | date: '%B %d, %Y' }} &nbsp; | &nbsp;
           </em>
-          <!--
+
           {% for category in page.categories %}
           <a class="has-text-grey-light is-capitalized" href="/category/{{ category }}">
             <em>{{ category }}</em>
           </a>
-          {% endfor %}-->
-          {% if page.categories %}
-          <a class="has-text-grey-light is-capitalized" href="/category/{{ category }}">
-            <em>{{ page.categories }}</em>
-          </a>
-          {% endif %}
+          {% endfor %}
         </div>
         <br/>
         <div class="content">
