@@ -112,14 +112,14 @@ gulp.task('generate-service-worker', (callback) => {
 
   gulp.task('fix-config', () => {
     gulp.src('_config.yml')
-      .pipe($.replace('baseurl: ""', 'baseurl: "wjbeckett"'))
+      .pipe($.replace('baseurl: ""', 'baseurl: ""'))
       .pipe($.clean())
       .pipe(gulp.dest('.'));
   });
 
   gulp.task('revert-config', () => {
     gulp.src('_config.yml')
-        .pipe($.replace('baseurl: "wjbeckett"', 'baseurl: ""'))
+        .pipe($.replace('baseurl: ""', 'baseurl: ""'))
         .pipe($.clean())
         .pipe(gulp.dest('.'));
   });
