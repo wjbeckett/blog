@@ -106,23 +106,9 @@ gulp.task('generate-service-worker', (callback) => {
   swPrecache.write(path.join(rootDir, 'sw.js'), {
     staticFileGlobs: [rootDir + '/**/*.{js,html,css,png,jpg,gif,json}'],
     stripPrefix: rootDir,
-    replacePrefix: '/wjbeckett'
+    // replacePrefix: '/wjbeckett'
   }, callback);
 });
-
-  gulp.task('fix-config', () => {
-    gulp.src('_config.yml')
-      .pipe($.replace('baseurl: ""', 'baseurl: ""'))
-      .pipe($.clean())
-      .pipe(gulp.dest('.'));
-  });
-
-  gulp.task('revert-config', () => {
-    gulp.src('_config.yml')
-        .pipe($.replace('baseurl: ""', 'baseurl: ""'))
-        .pipe($.clean())
-        .pipe(gulp.dest('.'));
-  });
 
 gulp.task('jekyll-build', ['scripts', 'css'], $.shell.task(['jekyll build']));
 
@@ -131,15 +117,13 @@ gulp.task('jekyll-build-for-deploy', $.shell.task(['jekyll build']));
 // Default task.
 gulp.task('build', () =>
   runSequence(
-    'fix-config',
     'cleanup-build',
     'scripts',
     'jekyll-build-for-deploy',
     'minify-html',
     'css',
     'generate-service-worker',
-    'minify-images',
-    'revert-config'
+    'minify-images'
   )
 );
 
