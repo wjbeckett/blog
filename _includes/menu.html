@@ -1,0 +1,49 @@
+<div class="column is-narrow is-hidden-touch">
+    <aside class="menu">
+        <p class="menu-label">
+            Author
+        </p>
+        <ul class="menu-list">
+            <li>{{ site.author }}</li>
+        </ul>
+        <br/>
+        <p>
+        <figure class="image is-96x96">
+            <img src="/images/npp-badge.png" alt="Nutanix NPP">
+        </figure>
+        <br/>
+        </p>
+        <p class="menu-label">
+        Recent Posts
+        </p>
+        <ul class="menu-list">
+            {% for post in site.posts limit:3 %}
+            <li><a href="{{ post.url }}">
+                <p>{{ post.title }}</p>
+                <small class="has-text-link">{{ post.date | date_to_string }}</small>
+            </a>
+            </li>
+            {% endfor %}
+        </ul>
+        <p class="menu-label">
+        Categories
+        </p>
+        <ul class="menu-list">
+            {% for category in site.categories %}
+            <li>
+            <a href="/category/{{ category | first }}">
+                {{ category | first | capitalize }}
+            </a>
+            </li>
+            {% endfor %}
+        </ul>
+        <p class="menu-label">
+        Archives
+        </p>
+        <ul class="menu-list">
+            <li><a>Archive 1</a></li>
+            <li><a>Archive 2</a></li>
+            <li><a>Archive 3</a></li>
+        </ul>
+    </aside>
+      </div>

@@ -1,15 +1,46 @@
 ---
 layout: default
+route: blog
 ---
-<div class="post">
-
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-  </header>
-
-  <article class="post-content">
-    {{ content }}
-  </article>
-
+<div class="container">
+  {% include navbar.html boxed=true %}
 </div>
+
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+          <section class="hero is-{{ page.color }} bd-article-image is-bold">
+              <span class="bd-article-overlay"></span>
+              <span class="bd-article-icon">
+                <i class="fa fa-{{ page.icon }}"></i>
+              </span>
+              <div class="hero-body bd-article-info">
+                <div class="container">
+                  <span>
+                  <time class="bd-article-date" datetime="{{ page.date | date_to_xmlschema }}">
+                    {{ page.date | date_to_string }}
+                  </time>
+                  <strong class="bd-article-title">
+                    {{ page.name }}
+                  </strong>
+                  <br/>
+                  <br/>
+                  <div class="tags" style="display: block;">
+                    {% for category in page.categories %}
+                      <span class="tag is-dark">{{ category | capitalize }}</span>
+                    {% endfor %}
+                  </div>
+                  </span>
+                </div>
+              </div>
+            </section>
+        <br/>
+        <div class="content is-medium">
+          {{ content }}
+        </div>
+      </div>
+      {% include menu.html %}
+    </div>
+  </div>
+</section>

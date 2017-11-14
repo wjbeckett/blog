@@ -1,0 +1,54 @@
+---
+layout: default
+---
+
+<div class="container">
+    {% include navbar.html id="Index" transparent=true boxed=true %}
+  </div>
+  
+    <section class="section">
+      <div class="container">
+        <div class="columns is-multiline">
+          <div class="column">
+          {% for post in site.categories[page.category] %}
+          <article class="column">
+            <a class="hero bd-article-image is-{{ post.color }} is-bold" href="{{ post.url }}">
+              <span class="bd-article-overlay"></span>
+              <span class="bd-article-icon">
+                <i class="fa fa-{{ post.icon }}"></i>
+              </span>
+              <strong class="hero-body bd-article-info">
+                <div class="container">
+                  <span>
+                    <time class="bd-article-date" datetime="{{ post.date | date_to_xmlschema }}">
+                      {{ post.date | date_to_string }}
+                    </time>
+                    <strong class="bd-article-title">
+                      {{ post.name }}
+                    </strong>
+                    <br/>
+                    <br/>
+                    <div class="tags" style="display: block;">
+                      {% for category in post.categories %}
+                        <span class="tag is-dark">{{ category | capitalize }}</span>
+                      {% endfor %}
+                    </div>
+                  </span>
+                </div>
+              </strong>
+            </a>
+            <hr>
+              <div class="content is-medium">
+                {{ post.content }}
+              </div>
+          </article>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          {% endfor %}
+          </div>
+          {% include menu.html %}
+        </div>
+      </div>
+    </section>

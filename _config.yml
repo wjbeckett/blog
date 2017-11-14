@@ -13,10 +13,10 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: wjbeckett
+title:         "William Beckett"
 email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
-  Personal Blog
+  Nutanix and other things I come across
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://wjbeckett2.netlify.com" # the base hostname & protocol for your site
 twitter_username: wjbeckett
@@ -36,5 +36,19 @@ exclude: [
   ".gitignore",
   "sass",
   "scss",
-  "validate"
+  "validate",
+  "bulma-docs.sass"
 ]
+
+# Icons
+
+fontawesome:   https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+iconic:        https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic.min.css
+ionicons:      https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css
+mdi:           https://cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css
+
+# Variables
+
+github:        https://github.com/wjbeckett
+twitter:       https://twitter.com/wjbeckett
+author:        "William"

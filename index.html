@@ -1,24 +1,59 @@
 ---
 layout: default
+route: index
+fixed_navbar: true
 ---
 
-<div class="home">
-
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
-
+<div class="container">
+  {% include navbar.html id="Index" fixed=true has_container=true boxed=true %}
 </div>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      <!--<div class="column">-->
+      {% for post in site.posts %}
+        <div class="column is-12">
+          <a class="hero bd-article-image is-{{ post.color }} is-bold" href="{{ post.url }}">
+            <span class="bd-article-overlay"></span>
+            <span class="bd-article-icon">
+              <i class="fa fa-{{ post.icon }}"></i>
+            </span>
+            <strong class="hero-body bd-article-info">
+              <div class="container">
+                <span>
+                  <time class="bd-article-date" datetime="{{ post.date | date_to_xmlschema }}">
+                    {{ post.date | date_to_string }}
+                  </time>
+                  <strong class="bd-article-title">
+                    {{ post.name }}
+                  </strong>
+                  <br/>
+                  <br/>
+                  <div class="tags" style="display: block;">
+                    {% for category in post.categories %}
+                      <span class="tag is-dark">{{ category | capitalize }}</span>
+                    {% endfor %}
+                  </div>
+                </span>
+              </div>
+            </strong>
+          </a>
+          <br/>
+          <div class="content is-medium">
+            {{ post.content }}
+          </div>
+        
+        <br/>
+        <br/>
+        <hr>
+        <br/>
+        <br/>
+        </div>
+      {% endfor %}
+      <!--</div>-->
+      <!--{% include menu.html %}-->
+    </div>
+  </div>
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+</section>

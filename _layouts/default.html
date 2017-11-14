@@ -1,28 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="has-navbar-fixed-top {% if page.route %}route-{{page.route}}{% elsif page.layout %}route-{{page.layout}}{% endif %}">
   {% include head.html %}
-
-  <body>
-
-    {% include header.html %}
-
-    <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
-    </div>
-
+  <body class="layout-{{ page.layout }}{% if page.doc-tab %} page-{{ page.doc-tab}}{% endif %}">
+    {{ content }}
     {% include footer.html %}
-
-  <link async href="{{ "/scripts/main.min.js" | relative_url }}">
-  <script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register("{{ "/sw.js" | relative_url }}").then(function() {
-      console.log("Service Worker Registered");
-    });
-  }
-  </script>
+    <!-- Google Analytics -->
+    {% if jekyll.environment == 'production' %}
+    {% include analytics.html %}
+    {% endif %}
+    <!-- End Google Analytics -->
+    <link async href="{{ "/scripts/main.min.js" | relative_url }}">
+    <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register("{{ "/sw.js" | relative_url }}").then(function() {
+        console.log("Service Worker Registered");
+      });
+    }
+    </script>
   </body>
-
 </html>
