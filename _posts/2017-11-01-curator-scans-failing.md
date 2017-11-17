@@ -11,6 +11,7 @@ categories: [nutanix]
 I recently moved our Nutanix Cluster to a new Data Center. After I completed the move and brought the Nutanix cluster back online Prism was generating a Critical alert basically telling me that the Curator Scan hadn’t run in the last 24 hours. Here’s the exact alert:
 
 ![Curator Service Error]({{ site.url }}/images/curator_error.png)
+{% lazyload data-src="/images/curator_error.png" alt="Curator Service Error" %}
 
 I wasn’t too concerned with this alert because I knew the reason this alert was triggered was because my cluster was off while we moved it. I assumed that in time, Curator would run a partial scan (or full scan) again and the alert would go away. However because I wanted to make sure everything was okay (and to get that reassuring green heart ), I did a little digging into the issue.
 
@@ -38,11 +39,12 @@ Next, I went ahead and kicked off a partial scan. Once I clicked on the link to 
 
 I decided to try accessing the root URL of Curator (without the /master/control) and was greeted with a page similar to the ELinks page from above but this time in my browser where I could see the status of the scan I had kicked off!
 
-![Curator Active Jobs]({{ site.url }}\images\curator_running.png)
+![Curator Active Jobs]({{ site.url }}/images/curator_running.png)
 
 I waited a while (849 seconds to be exact) and refreshed that page again and noticed that my scan had complete!
 
-![Curator Jobs Succeeded]({{ site.url }}\images\curator_succeeded.png)
+![Curator Jobs Succeeded]({{ site.url }}/images/curator_succeeded.png)
+{% lazyload data-src="/images/curator_succeeded.png" alt="Curator Jobs Succeeded" %}
 
 Now that the Curator scan was complete I checked Prism again, and the alert was gone.
 I updated the support ticket and Paul from Nutanix Support gave me a call to do one more health check across my cluster anyway.

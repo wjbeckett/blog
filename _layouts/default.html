@@ -10,6 +10,7 @@
     {% endif %}
     <!-- End Google Analytics -->
     <link async href="{{ "/scripts/main.min.js" | relative_url }}">
+    <script src="/_javascript/lazysizes.min.js" async=""></script>
     <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register("{{ "/sw.js" | relative_url }}").then(function() {
