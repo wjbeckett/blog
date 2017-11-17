@@ -11,7 +11,7 @@ categories: [nutanix]
 I recently moved our Nutanix Cluster to a new Data Center. After I completed the move and brought the Nutanix cluster back online Prism was generating a Critical alert basically telling me that the Curator Scan hadn’t run in the last 24 hours. Here’s the exact alert:
 
 <figure>
-  <img src="{{ site.url }}/images/curator_error-lq.png" data-src="{{ site.url }}/images/curator_error.png" alt="Curator Service Error" class="lazyload" />
+  <img src="{{ site.url }}/images/curator_error-lq.png" data-src="{{ site.url }}/images/curator_error.png" alt="Curator Service Error" class="lazyload blur-up" />
 </figure>
 
 
@@ -24,7 +24,9 @@ In my search I stumbled across a post from a few years back on the Nutanix Commu
 
 So I did a little more digging and found that if I open an SSH session to a CVM and enter  `links http:0:2010` it’ll bring up an ELinks page which tells me what CVM is the Curator Master. Perfect!
 
-![eLinks Page]({{ site.url }}/images/eLinks.png){: .lazyload }
+<figure>
+  <img src="{{ site.url }}/images/eLinks-lq.png" data-src="{{ site.url }}/images/eLinks.png" alt="eLinks Page" class="lazyload blur-up" />
+</figure>
 
 I now had the first piece of the puzzle, the Curator Master CVM. So now I try to open a web page to `http://{Curator-Master-CVM-IP}:2010/master/control` and… doesn’t work. I remembered reading a while ago that you could access the Stagate page of a CVM on port 2009 but in order to do that you had to either stop the service or modify iptables on the CVM to allow the connection rather than reject it. So I thought I’d give it a shot.
 
@@ -34,18 +36,24 @@ Where 2010 is the Curator port that I needed to open.
 
 That accepted fine and when I tried to access the Curator URL again I was greeted with the below webpage.
 
-![Curator Control Page]({{ site.url }}/images/Curator_Control_Page.png){: .lazyload }
+<figure>
+  <img src="{{ site.url }}/images/Curator_Control_Page-lq.png" data-src="{{ site.url }}/images/Curator_Control_Page.png" alt="Curator Control Page" class="lazyload blur-up" />
+</figure>
 
 I was finally getting somewhere.
 Next, I went ahead and kicked off a partial scan. Once I clicked on the link to ‘Start Partial Scan’ it went to a blank page. I assumed that worked?
 
 I decided to try accessing the root URL of Curator (without the /master/control) and was greeted with a page similar to the ELinks page from above but this time in my browser where I could see the status of the scan I had kicked off!
 
-![Curator Active Jobs]({{ site.url }}/images/curator_running.png){: .lazyload }
+<figure>
+  <img src="{{ site.url }}/images/curator_running-lq.png" data-src="{{ site.url }}/images/curator_running.png" alt="Curator Active Jobs" class="lazyload blur-up" />
+</figure>
 
 I waited a while (849 seconds to be exact) and refreshed that page again and noticed that my scan had complete!
 
-![Curator Jobs Succeeded]({{ site.url }}/images/curator_succeeded.png){: .lazyload }
+<figure>
+  <img src="{{ site.url }}/images/curator_succeeded-lq.png" data-src="{{ site.url }}/images/curator_succeeded.png" alt="Curator Jobs Succeeded" class="lazyload blur-up" />
+</figure>
 
 Now that the Curator scan was complete I checked Prism again, and the alert was gone.
 I updated the support ticket and Paul from Nutanix Support gave me a call to do one more health check across my cluster anyway.
