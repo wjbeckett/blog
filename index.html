@@ -19,12 +19,13 @@ fixed_navbar: true
           </p>
         </a>
         <div class="subtitle is-6 has-text-grey-light">
-          <em datetime="{{ post.date | date_to_xmlschema }}">
-            {{ post.date | date: '%B %d, %Y' }} &nbsp; | &nbsp;
+          <span class="fa fa-sm fa-calendar"></span><em datetime="{{ post.date | date_to_xmlschema }}">
+            {{ post.date | date: '%B %d, %Y' }}
           </em>
+<br/>
           {% for category in post.categories %}
           <a class="has-text-grey-light is-capitalized" href="/category/{{ category }}">
-            <em>{{ category }}</em>
+            <span class="fa fa-sm fa-tag"></span><em>{{ category }}</em>
           </a>
           {% endfor %}
       </div>
