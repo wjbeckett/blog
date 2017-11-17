@@ -1,6 +1,7 @@
 'use strict';
 var changed     = require('gulp-changed');
 var responsive  = require('gulp-responsive');
+var rename      = require('gulp-rename');
 
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
@@ -44,7 +45,7 @@ gulp.task('minify-images', () => {
 
 // LazyLoad images.
 gulp.task('images:lazyload', () => {
-  gulp.src('images/lazyload/**/*.+(jpg|JPG|jpeg|JPEG|png|PNG|svg|SVG|gif|GIF|webp|WEBP|tif|TIF)', '/images/lazyload/**/*.{gif,svg}')
+  gulp.src('images/lazyload/**/*.+(jpg|JPG|jpeg|JPEG|png|PNG|svg|SVG|gif|GIF|webp|WEBP|tif|TIF)', '!/images/lazyload/**/*.{gif,svg}')
   .pipe(changed('_site/images'))
   .pipe(responsive({
     // resize all images
