@@ -29,7 +29,7 @@ Because I was already logged in to each host via vSphere I decided to use vSpher
 Now that the hosts were off the shutdown sequence was complete and I could move on to pulling the power and network cables, pulling the nodes out of the rack and moving them to the new DC.
 
 <figure>
-  <img src="{{ site.url }}/images/moving-nutanix-kit.jpg" alt="ready to move" />
+  <img src="{{ site.url }}/images/moving-nutanix-kit.jpg" alt="ready to move" class="lazyload" />
   <figcaption>Ready for the new home!</figcaption>
 </figure>
 
