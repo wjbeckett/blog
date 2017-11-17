@@ -40,6 +40,29 @@ gulp.task('minify-images', () => {
     .pipe(gulp.dest('_site/images'));
 });
 
+// LazyLoad images.
+gulp.task('images:lazyload', () => {
+  gulp.src('images/lazyload/**/*.+(jpg|JPG|jpeg|JPEG|png|PNG|svg|SVG|gif|GIF|webp|WEBP|tif|TIF)', '!/images/lazyload/**/*.{gif,svg}')
+  .pipe(changed(paths.imageFilesSite))
+  .pipe(responsive({
+    // resize all images
+    '*.*': [{
+      width: 20,
+      rename: { suffix: '-lq' },
+    }, {
+      // copy original image
+      width: '100%',
+      rename: { suffix: '' },
+    }]
+  }, {
+    // global configuration for all images
+    errorOnEnlargement: false,
+    withMetadata: false,
+    errorOnUnusedConfig: false
+  }))
+  .pipe(gulp.dest('_site/images'))
+});
+
 // Concatenate, transpiles ES2015 code to ES5 and minify JavaScript.
 gulp.task('scripts', () => {
   gulp.src([
