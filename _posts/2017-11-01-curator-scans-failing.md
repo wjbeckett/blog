@@ -10,7 +10,9 @@ categories: [nutanix]
 
 I recently moved our Nutanix Cluster to a new Data Center. After I completed the move and brought the Nutanix cluster back online Prism was generating a Critical alert basically telling me that the Curator Scan hadn’t run in the last 24 hours. Here’s the exact alert:
 
-![Curator Service Error]({{ site.url }}/images/curator_error.png){: .lazyload }
+<figure>
+  <img src="{{ site.url }}/images/curator_error-lq.png" data-src="{{ site.url }}/images/curator_error.png" alt="Curator Service Error" class="lazyload" />
+</figure>
 
 
 I wasn’t too concerned with this alert because I knew the reason this alert was triggered was because my cluster was off while we moved it. I assumed that in time, Curator would run a partial scan (or full scan) again and the alert would go away. However because I wanted to make sure everything was okay (and to get that reassuring green heart ), I did a little digging into the issue.
