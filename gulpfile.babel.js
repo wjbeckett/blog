@@ -42,7 +42,7 @@ gulp.task('minify-images', () => {
 
 // LazyLoad images.
 gulp.task('images:lazyload', () => {
-  gulp.src('images/lazyload/**/*.+(jpg|JPG|jpeg|JPEG|png|PNG|svg|SVG|gif|GIF|webp|WEBP|tif|TIF)', '!/images/lazyload/**/*.{gif,svg}')
+  gulp.src('images/lazyload/**/*.+(jpg|JPG|jpeg|JPEG|png|PNG|svg|SVG|gif|GIF|webp|WEBP|tif|TIF)', '/images/lazyload/**/*.{gif,svg}')
   .pipe(changed(paths.imageFilesSite))
   .pipe(responsive({
     // resize all images
