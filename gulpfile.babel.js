@@ -146,7 +146,8 @@ gulp.task('build', () =>
     'minify-html',
     'css',
     'generate-service-worker',
-    'minify-images'
+    'minify-images',
+    'images:lazyload'
   )
 );
 
