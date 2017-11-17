@@ -26,6 +26,8 @@
     "gulp-load-plugins": "1.5.0",
     "gulp-shell": "^0.6.3",
     "gulp-uglify": "^3.0.0",
+    "gulp-changed": "^3.1.1",
+    "gulp-responsive": "^2.8.0",
     "lighthouse": "^2.3.0",
     "sw-precache": "^5.2.0",
     "sw-toolbox": "^3.6.0",
