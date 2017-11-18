@@ -12,7 +12,7 @@ read_time: true
 I recently moved our Nutanix Cluster to a new Data Center. After I completed the move and brought the Nutanix cluster back online Prism was generating a Critical alert basically telling me that the Curator Scan hadn’t run in the last 24 hours. Here’s the exact alert:
 
 <figure>
-  <img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAABAgMAAABmjvwnAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAADFBMVEX09/n3+fr5+vr///81AiMYAAAAAWJLR0QDEQxM8gAAAAd0SU1FB+ELDxQ4MWMR9K0AAAAKSURBVAgdY5AAAAAaABmq72WiAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE3LTExLTE3VDE1OjIxOjI3KzEwOjAwWhZ5fgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNy0xMS0xNVQxMDo1Njo0OSsxMDowMOxzK5IAAAAASUVORK5CYII=" data-sizes="auto" data-src="{{ site.url }}/images/curator_error.png" alt="Curator Service Error" class="lazyload blur-up" />
+  <img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAABAgMAAABmjvwnAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAADFBMVEX09/n3+fr5+vr///81AiMYAAAAAWJLR0QDEQxM8gAAAAd0SU1FB+ELDxQ4MWMR9K0AAAAKSURBVAgdY5AAAAAaABmq72WiAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE3LTExLTE3VDE1OjIxOjI3KzEwOjAwWhZ5fgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNy0xMS0xNVQxMDo1Njo0OSsxMDowMOxzK5IAAAAASUVORK5CYII=" data-sizes="auto" data-src="{{ site.url }}/images/curator_error.png" alt="Curator Service Error" class="lazyload blur-up" width="280" height="185" />
 </figure>
 
 
@@ -26,7 +26,7 @@ In my search I stumbled across a post from a few years back on the Nutanix Commu
 So I did a little more digging and found that if I open an SSH session to a CVM and enter  `links http:0:2010` it’ll bring up an ELinks page which tells me what CVM is the Curator Master. Perfect!
 
 <figure>
-  <img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAABAgMAAABmjvwnAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAADFBMVEWksaars6yxtLH///9beHaiAAAAAWJLR0QDEQxM8gAAAAlwSFlzAAAOwwAADsMBx2+oZAAAAAd0SU1FB+ELEgYdGQOGdOwAAAAKSURBVAgdY5AAAAAaABmq72WiAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE3LTExLTE3VDIwOjI5OjI1KzEwOjAwvxC+awAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNy0xMS0xN1QyMDoyOToyNSsxMDowMM5NBtcAAAAASUVORK5CYII=" data-sizes="auto" data-src="{{ site.url }}/images/eLinks.png" alt="eLinks Page" class="lazyload blur-up" />
+  <img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAABAgMAAABmjvwnAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAADFBMVEWksaars6yxtLH///9beHaiAAAAAWJLR0QDEQxM8gAAAAlwSFlzAAAOwwAADsMBx2+oZAAAAAd0SU1FB+ELEgYdGQOGdOwAAAAKSURBVAgdY5AAAAAaABmq72WiAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE3LTExLTE3VDIwOjI5OjI1KzEwOjAwvxC+awAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNy0xMS0xN1QyMDoyOToyNSsxMDowMM5NBtcAAAAASUVORK5CYII=" data-sizes="auto" data-src="{{ site.url }}/images/eLinks.png" alt="eLinks Page" class="lazyload blur-up" width="300" height="133" />
 </figure>
 
 I now had the first piece of the puzzle, the Curator Master CVM. So now I try to open a web page to `http://{Curator-Master-CVM-IP}:2010/master/control` and… doesn’t work. I remembered reading a while ago that you could access the Stagate page of a CVM on port 2009 but in order to do that you had to either stop the service or modify iptables on the CVM to allow the connection rather than reject it. So I thought I’d give it a shot.
