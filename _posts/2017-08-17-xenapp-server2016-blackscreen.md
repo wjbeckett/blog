@@ -5,6 +5,7 @@ introduction: "Two days ago, XenDesktop 7.15 was released and yesterday the 2nd 
 name: "XenApp and Server 2016 – Black Screen at Login"
 date: 2017-08-17
 categories: [citrix]
+read_time: true
 ---
 
 I’m currently building a new Citrix environment at my place of work and thought that seeing as we are going for a fresh start I may as well use the latest versions of Citrix and Windows. So I started building a new Citrix VDA for shared desktop use on Windows Server 2016 with Citrix XenDesktop 7.13.
