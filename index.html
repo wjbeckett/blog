@@ -22,9 +22,9 @@ fixed_navbar: true
           <span class="fa fa-sm fa-calendar"></span>&nbsp;<em datetime="{{ post.date | date_to_xmlschema }}">
             {{ post.date | date: '%B %d, %Y' }}
           </em>
-<br/>
-{% include read_time.html %}
-<br/>
+          <br/>
+          <span class="fa fa-sm fa-clock-o"></span>{% include read_time.html %}
+          <br/>
           {% for category in post.categories %}
           <a class="has-text-grey-light is-capitalized" href="/category/{{ category }}">
             <span class="fa fa-sm fa-tag"></span>&nbsp;<em>{{ category }}</em>
