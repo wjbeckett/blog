@@ -23,7 +23,7 @@ fixed_navbar: true
             {{ post.date | date: '%B %d, %Y' }}
           </em>
           <br/>
-          <span class="fa fa-sm fa-clock-o"></span>{% include read_time.html %}
+          <span class="fa fa-sm fa-clock-o"></span><em>{% include read_time.html %}</em>
           <br/>
           {% for category in post.categories %}
           <a class="has-text-grey-light is-capitalized" href="/category/{{ category }}">
