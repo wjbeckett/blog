@@ -38,7 +38,7 @@ Where 2010 is the Curator port that I needed to open.
 That accepted fine and when I tried to access the Curator URL again I was greeted with the below webpage.
 
 <figure>
-  <img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAABAgMAAABmjvwnAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAADFBMVEXe3+3g4uji4+P////l388dAAAAAWJLR0QDEQxM8gAAAAd0SU1FB+ELEgYdGQOGdOwAAAAKSURBVAgdY5AAAAAaABmq72WiAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE3LTExLTE3VDIwOjI5OjI1KzEwOjAwvxC+awAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNy0xMS0xN1QyMDoyOToyNSsxMDowMM5NBtcAAAAASUVORK5CYII=" data-src="{{ site.url }}/images/Curator_Control_Page.png" alt="Curator Control Page" data-sizes="auto" class="lazyload blur-up" />
+  <img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAABAgMAAABmjvwnAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAADFBMVEXe3+3g4uji4+P////l388dAAAAAWJLR0QDEQxM8gAAAAd0SU1FB+ELEgYdGQOGdOwAAAAKSURBVAgdY5AAAAAaABmq72WiAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE3LTExLTE3VDIwOjI5OjI1KzEwOjAwvxC+awAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNy0xMS0xN1QyMDoyOToyNSsxMDowMM5NBtcAAAAASUVORK5CYII=" data-src="{{ site.url }}/images/Curator_Control_Page.png" alt="Curator Control Page" class="lazyload blur-up" />
 </figure>
 
 I was finally getting somewhere.
