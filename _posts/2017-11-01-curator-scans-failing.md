@@ -12,7 +12,7 @@ read_time: true
 I recently moved our Nutanix Cluster to a new Data Center. After I completed the move and brought the Nutanix cluster back online Prism was generating a Critical alert basically telling me that the Curator Scan hadn’t run in the last 24 hours. Here’s the exact alert:
 
 <figure>
-  <img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAABAgMAAABmjvwnAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAADFBMVEX09/n3+fr5+vr///81AiMYAAAAAWJLR0QDEQxM8gAAAAd0SU1FB+ELDxQ4MWMR9K0AAAAKSURBVAgdY5AAAAAaABmq72WiAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE3LTExLTE3VDE1OjIxOjI3KzEwOjAwWhZ5fgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNy0xMS0xNVQxMDo1Njo0OSsxMDowMOxzK5IAAAAASUVORK5CYII=" data-sizes="auto" data-src="{{ site.url }}/images/curator_error.png" alt="Curator Service Error" class="lazyload blur-up" width="280" height="185" />
+  <img src="{{ site.url }}/images/curator_error-lq.png" data-src="{{ site.url }}/images/curator_error.png" alt="Curator Service Error" class="lazyload blur-up" width="280" height="185" />
 </figure>
 
 
