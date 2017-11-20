@@ -11,8 +11,8 @@ read_time: true
 
 I recently moved our Nutanix Cluster to a new Data Center. After I completed the move and brought the Nutanix cluster back online Prism was generating a Critical alert basically telling me that the Curator Scan hadn’t run in the last 24 hours. Here’s the exact alert:
 
-<figure class="image is-280x115">
-  <img src="{{ site.url }}/images/curator_error-lq.png" data-src="{{ site.url }}/images/curator_error.png" alt="Curator Service Error" class="lazyload blur-up" />
+<figure class="image">
+  <img src="{{ site.url }}/images/curator_error-lq.png" data-src="{{ site.url }}/images/curator_error.png" alt="Curator Service Error" class="lazyload blur-up" width="280" height="115" />
 </figure>
 
 
@@ -25,8 +25,8 @@ In my search I stumbled across a post from a few years back on the Nutanix Commu
 
 So I did a little more digging and found that if I open an SSH session to a CVM and enter  `links http:0:2010` it’ll bring up an ELinks page which tells me what CVM is the Curator Master. Perfect!
 
-<figure class="image is-300x133">
-  <img src="{{ site.url }}/images/eLinks-lq.png" data-src="{{ site.url }}/images/eLinks.png" alt="eLinks Page" class="lazyload blur-up" />
+<figure class="image">
+  <img src="{{ site.url }}/images/eLinks-lq.png" data-src="{{ site.url }}/images/eLinks.png" alt="eLinks Page" class="lazyload blur-up" width="300" height="133" />
 </figure>
 
 
@@ -37,8 +37,8 @@ I SSH’d to my Curator Master CVM and tried:
 Where 2010 is the Curator port that I needed to open.
 
 That accepted fine and when I tried to access the Curator URL again I was greeted with the below webpage.
-<figure class="image is-300x106">
-  <img src="{{ site.url }}/images/Curator_Control_Page-lq.png" data-src="{{ site.url }}/images/Curator_Control_Page.png" alt="Curator Control Page" class="lazyload blur-up" />
+<figure class="image">
+  <img src="{{ site.url }}/images/Curator_Control_Page-lq.png" data-src="{{ site.url }}/images/Curator_Control_Page.png" alt="Curator Control Page" class="lazyload blur-up" width="300" height="106" />
 </figure>
 
 I was finally getting somewhere.
@@ -46,14 +46,14 @@ Next, I went ahead and kicked off a partial scan. Once I clicked on the link to 
 
 I decided to try accessing the root URL of Curator (without the /master/control) and was greeted with a page similar to the ELinks page from above but this time in my browser where I could see the status of the scan I had kicked off!
 
-<figure class="image is-1024x116">
-  <img src="{{ site.url }}/images/curator_running-lq.png" data-src="{{ site.url }}/images/curator_running.png" alt="Curator Active Jobs" class="lazyload blur-up" />
+<figure class="image">
+  <img src="{{ site.url }}/images/curator_running-lq.png" data-src="{{ site.url }}/images/curator_running.png" alt="Curator Active Jobs" class="lazyload blur-up" width="1024" height="116" />
 </figure>
 
 I waited a while (849 seconds to be exact) and refreshed that page again and noticed that my scan had complete!
 
-<figure class="image is-1024x112">
-  <img src="{{ site.url }}/images/curator_succeeded-lq.png" data-src="{{ site.url }}/images/curator_succeeded.png" alt="Curator Jobs Succeeded" class="lazyload blur-up" />
+<figure class="image">
+  <img src="{{ site.url }}/images/curator_succeeded-lq.png" data-src="{{ site.url }}/images/curator_succeeded.png" alt="Curator Jobs Succeeded" class="lazyload blur-up" width="1024" height="112" />
 </figure>
 
 Now that the Curator scan was complete I checked Prism again, and the alert was gone.
