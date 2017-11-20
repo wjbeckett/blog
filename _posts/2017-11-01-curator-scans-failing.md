@@ -11,7 +11,7 @@ read_time: true
 
 I recently moved our Nutanix Cluster to a new Data Center. After I completed the move and brought the Nutanix cluster back online Prism was generating a Critical alert basically telling me that the Curator Scan hadn’t run in the last 24 hours. Here’s the exact alert:
 
-  <img src="{{ site.url }}/images/curator_error-lq.png" data-src="{{ site.url }}/images/curator_error.png" alt="Curator Service Error" class="lazyload blur-up" width="280" height="185" />
+  <img src="{{ site.url }}/images/curator_error-lq.png" data-src="{{ site.url }}/images/curator_error.png" alt="Curator Service Error" class="lazyload blur-up" width="280" height="115" />
 
 
 I wasn’t too concerned with this alert because I knew the reason this alert was triggered was because my cluster was off while we moved it. I assumed that in time, Curator would run a partial scan (or full scan) again and the alert would go away. However because I wanted to make sure everything was okay (and to get that reassuring green heart ), I did a little digging into the issue.
@@ -35,18 +35,18 @@ Where 2010 is the Curator port that I needed to open.
 
 That accepted fine and when I tried to access the Curator URL again I was greeted with the below webpage.
 
-  <img src="{{ site.url }}/images/Curator_Control_Page-lq.png" data-src="{{ site.url }}/images/Curator_Control_Page.png" alt="Curator Control Page" class="lazyload blur-up" />
+  <img src="{{ site.url }}/images/Curator_Control_Page-lq.png" data-src="{{ site.url }}/images/Curator_Control_Page.png" alt="Curator Control Page" class="lazyload blur-up" width="300" height="106"/>
 
 I was finally getting somewhere.
 Next, I went ahead and kicked off a partial scan. Once I clicked on the link to ‘Start Partial Scan’ it went to a blank page. I assumed that worked?
 
 I decided to try accessing the root URL of Curator (without the /master/control) and was greeted with a page similar to the ELinks page from above but this time in my browser where I could see the status of the scan I had kicked off!
 
-  <img src="{{ site.url }}/images/curator_running-lq.png" data-src="{{ site.url }}/images/curator_running.png" alt="Curator Active Jobs" class="lazyload blur-up" />
+  <img src="{{ site.url }}/images/curator_running-lq.png" data-src="{{ site.url }}/images/curator_running.png" alt="Curator Active Jobs" class="lazyload blur-up" width="1024" height="116"/>
 
 I waited a while (849 seconds to be exact) and refreshed that page again and noticed that my scan had complete!
 
-  <img src="{{ site.url }}/images/curator_succeeded-lq.png" data-src="{{ site.url }}/images/curator_succeeded.png" alt="Curator Jobs Succeeded" class="lazyload blur-up" />
+  <img src="{{ site.url }}/images/curator_succeeded-lq.png" data-src="{{ site.url }}/images/curator_succeeded.png" alt="Curator Jobs Succeeded" class="lazyload blur-up" width="1024" height="112"/>
 
 Now that the Curator scan was complete I checked Prism again, and the alert was gone.
 I updated the support ticket and Paul from Nutanix Support gave me a call to do one more health check across my cluster anyway.
