@@ -14,7 +14,7 @@ I recently moved our Nutanix Cluster to a new Data Center. After I completed the
   <img src="{{ site.url }}/images/curator_error-lq.png" data-src="{{ site.url }}/images/curator_error.png" alt="Curator Service Error" class="lazyload blur-up" width="280" height="115" />
 
 
-I wasn’t too concerned with this alert because I knew the reason this alert was triggered was because my cluster was off while we moved it. I assumed that in time, Curator would run a partial scan (or full scan) again and the alert would go away. However because I wanted to make sure everything was okay (and to get that reassuring green heart <span class="icon has-text-success"><i class="mdi mdi-heart-pulse"></i></span>), I did a little digging into the issue.
+I wasn’t too concerned with this alert because I knew the reason this alert was triggered was because my cluster was off while we moved it. I assumed that in time, Curator would run a partial scan (or full scan) again and the alert would go away. However because I wanted to make sure everything was okay (and to get that reassuring green heart <span class="icon has-text-success"><i class="fa fa-heartbeat"></i></span>), I did a little digging into the issue.
 
 Before doing anything I logged this as an issue with Nutanix Support. So while I waited for support to get back to me I figured I’d do some investigating.
 
