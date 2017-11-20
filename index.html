@@ -19,15 +19,15 @@ fixed_navbar: true
           </p>
         </a>
         <div class="subtitle is-6 has-text-grey-light">
-          <span class="fa fa-sm fa-calendar"></span>&nbsp;&nbsp;<span datetime="{{ post.date | date_to_xmlschema }}">
+          <span class="icon has-text-primary"><i class="fa fa-lg fa-calendar"></i></span>&nbsp;&nbsp;&nbsp;<span datetime="{{ post.date | date_to_xmlschema }}">
             {{ post.date | date: '%B %d, %Y' }}
           </span>
           <br/>
-          <span class="fa fa-sm fa-clock-o"></span><span>{% include read_time.html %}</span>
+          <span class="icon has-text-primary"><i class="fa fa-lg fa-clock-o"></i></span><span>{% include read_time.html %}</span>
           <br/>
           {% for category in post.categories %}
           <a class="has-text-grey-light is-capitalized" href="/category/{{ category }}">
-            <span class="fa fa-sm fa-tag"></span>&nbsp;&nbsp;&nbsp;<span>{{ category }}</span>
+            <span class="icon has-text-primary"><i class="fa fa-lg fa-tag"></i></span>&nbsp;&nbsp;&nbsp;&nbsp;<span>{{ category }}</span>
           </a>
           {% endfor %}
       </div>
