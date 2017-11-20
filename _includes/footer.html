@@ -1,33 +1,26 @@
 <footer class="footer">
   <div class="container">
     <div class="columns is-multiline is-centered">
-      <div class="column is-2 has-text-centered">
+      <div class="column is-4 has-text-centered">
         <span class="content">
-          <strong>&copy; {{ 'now' | date: '%Y' }} </strong><br/>
-          William Beckett
+          <strong>&copy; {{ 'now' | date: '%Y' }} </strong> William Beckett
         </span>
       </div>
-      <div class="column is-2 has-text-centered">
+      <div class="column is-4 has-text-centered">
         <a href="https://bulma.io">
           <img src="/images/made-with-bulma-lq.png" data-src="/images/made-with-bulma.png" alt="Made with Bulma" class="lazyload blur-up" width="128" height="24">
         </a>
       </div>
-      <div class="column is-2 has-text-centered">
+      <div class="column is-4 has-text-centered">
         <a href="https://github.com/wjbeckett">
           <span class="icon is-medium has-text-primary">
-            <span class="fa-stack">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-            </span>
+            <i class="fa fa-github"></i>
           </span>
         </a>
-        <a href="https://twitter.com/share">
+        <a href="https://twitter.com/wjbeckett">
           <span class="icon is-medium has-text-primary">
-              <span class="fa-stack">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-              </span>
-            </span>
+            <i class="fa fa-twitter"></i>
+          </span>
         </a>
       </div> 
     </div>
@@ -38,6 +31,7 @@
 <script src="{{ site.url }}/vendor/clipboard-1.7.1.min.js"></script>
 <script src="{{ site.url }}/lib/main.js"></script>
 <script src="{{ site.url }}/lib/lazysizes.min.js"></script>
+<script src="{{ site.url }}/lib/hamburger.js"></script>
 
 {% if page.route == 'index' %}
   <script type="text/javascript" src="{{ site.url }}/lib/index.js"></script>
