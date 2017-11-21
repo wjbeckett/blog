@@ -19,12 +19,31 @@
       </span>
     </a>
 
-    <div id="navbarBurger" class="navbar-burger burger" data-target="navMenu{{ include.id }}">
+    <!--<div id="navbarBurger" class="navbar-burger burger" data-target="navMenu{{ include.id }}">
       <span></span>
       <span></span>
       <span></span>
+    </div>-->
+
+    <div class="button_container" id="nav-toggle">
+      <span class="top"></span>
+      <span class="middle"></span>
+      <span class="bottom"></span>
     </div>
-</div>
+    
+    <div class="overlay" id="overlay">
+      <nav class="overlay-menu burger" data-target="navMenu{{ include.id }}">
+        <ul>
+          <li ><span></span></li>
+          <li ><span></span></li>
+          <li ><span></span></li>
+          <li ><span></span></li>
+        </ul>
+      </nav>
+    </div>
+
+
+  </div>
   
 
   <div id="navMenu{{ include.id }}" class="navbar-menu">
