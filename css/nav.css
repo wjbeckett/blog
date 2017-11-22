@@ -22,10 +22,7 @@
           transform: translateY(0);
         }
       }
-    
-      @include mq(lg){
-        float:right;
-    
+        
         &__content {
           display:block;
           width:auto;
@@ -36,7 +33,7 @@
           opacity:1;
           transform: none;
         }
-      }
+
     }
     
     // Appearance
@@ -63,7 +60,7 @@
           content: '';
           display:block;
           height:5px;
-          background-color:$gray-lighter;
+          background-color: grey;
           position:absolute;
           left:1rem;
           right:1rem;
@@ -75,7 +72,7 @@
     
         &--active {
           &::after {
-            background-color:$link-color;
+            background-color:blue;
             transform:none;
           }
         }
@@ -96,13 +93,7 @@
       }
     
       // Desktop Nav
-    
-      @include mq(lg){
-        &__content {
-          color:$gray-light;
-          padding:0;
-        }
-    
+        
         &__item {
           font-size:1rem;
           font-weight:400;
@@ -192,13 +183,6 @@
         outline:0;
       }
     
-      @include mq(md){
-        top:52px;
-      }
-    
-      @include mq(lg){
-        display:none;
-      }
     }
     
     
