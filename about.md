@@ -10,29 +10,35 @@ fixed_navbar: true
   {% include navbar.html id="About" fixed=true has_container=true boxed=true %}
 </div>
 
-<section class="hero">
+<section class="section">
   <div class="hero-body">
-    <div class="container">
+    <div class="container has-text-centered">
       <h1 class="title">
         {{ page.title }}
       </h1>
-      <h2 class="subtitle">
-        {{ page.excerpt }}
-      </h2>
     </div>
   </div>
-</section>
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-9">
+        <p>
+          Hi -- I'm William Beckett, just another It guy doing his thing in Brisbane, Australia. Personally I'm into technology (kind of a staple for anyone in IT), drinking coffee, thinking about how I can yet again re-design my home network, learning about new technology and spending time with my family.
 
-<section class="section">
-    <div class="container">
-        <div class="columns is-centered">
-            <div class="column is-9">
-                <p>
-                I have thought about starting a blog for a long time now but never got around to doing it. After working in IT for a while I realized it’d be handy to have a place to store my findings & experiences which I can refer back to or reflect on at a later date. Therein lies the purpose of this blog – a place to store my experiences and allow others to read my experiences and potentially help those who may have come across similar things in their careers.
-                In this blog I intend to post about things like, Virtualization, Citrix, Nutanix and anything else I come across in my career working s a Systems Administrator that I think might be helpful to store for later use or things that I think might be helpful for others out there on the line.
-                I hope that someone out there finds what I write about useful in some way or another.
-                </p>
-            </div>
-        </div>
+
+          When I'm not tinkering with my home network, or teaching myself HTML/CSS, I work as a Systems Administrator for a Brisbane based company. On any given day I could be building new servers in VMWare or AHV in our Nutanix cluster, troubleshooting issues in our Citrix farm, building new solutions to support the business, or doing what Sys Admins generally do, BAU stuff.
+
+
+          Over the last few years I've been really interested in Nutanix and the whole HCI movement which lead me to get my NPP (Nutanix Platfrom Professional) certificate for AOS4.5 first and most recently 5.0. I have enjoyed working the the platform becasue it makes thigs so easy for not just myself as an infrastructure person, but for our end users as well. The platform is constantly changing and releasing new features which makes it a really interesting and innovative space to be in.
+
+
+          If work wasn't enough to keep me busy I'm also the father of two amazing little boys and the husband of the most amazing woman in the world.
+        </p>
+        <hr>
+        <p>
+          # Contact
+          
+        </p>
+      </div>
     </div>
+  </div>
 </section>
