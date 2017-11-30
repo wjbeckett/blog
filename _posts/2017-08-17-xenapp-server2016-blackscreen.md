@@ -20,7 +20,7 @@ According to a Citrix employee the steps needed to implement the fixes are:
 
 * Upgrade VDA to 7.15 (best to do the Delivery Controller at the same time but not a necessity)
 * Apply the following registry key as described here: https://support.citrix.com/article/CTX225819
-* [HKEY_LOCAL_MACHINE\SOFTWARE\citrix\Citrix Virtual Desktop Agent] “DisableLogonUISuppression”=dword:00000000
+  `[HKEY_LOCAL_MACHINE\SOFTWARE\citrix\Citrix Virtual Desktop Agent] “DisableLogonUISuppression”=dword:00000000`
 
 * Apply the MS patch “2017-08 Cumulative Update for Windows Server 2016 (KB4034661)”  — Takes a long time.
 * Reboot the VDA
