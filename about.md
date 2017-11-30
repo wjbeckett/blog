@@ -36,14 +36,17 @@ fixed_navbar: true
         <p>
           If work wasn't enough to keep me busy I'm also the father of two amazing little boys and the husband of the most amazing woman in the world.
         </p>
-        </div>
-        <div class="column is-3">
+      </div>
+      <div class="column is-3">
         <figure>
             <img src="/images/npp-badge-lq.png" data-src="/images/npp-badge.png" alt="NPP Badge" class="lazyload blur-up" width="150" height="181">
         </figure>
-        </div>
-        <hr>
-        <div class="column is-9">
+      </div>
+    </div>
+  </div>
+  <hr>
+    <div class="columns is-centered">
+      <div class="column is-9">
         <h1>Contact</h1>
         <p>
           Contact me here
