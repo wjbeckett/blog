@@ -56,21 +56,21 @@ fixed_navbar: true
           <div class="field">
             <label class="label">Email</label>
             <div class="control has-icons-left has-icons-right">
-              <input class="input" type="email" placeholder="Enter email address">
+              <input :class="{'input': true, 'is-danger': errors.has('email') }" type="email" placeholder="Enter email address" v-validate="'required|email'" data-vv-as="Some number input">
               <span class="icon is-small is-left">
                 <i class="fa fa-envelope"></i>
               </span>
-              <span class="icon is-small is-right">
+              <span v-show="errors.has('email')" class="icon is-small is-right">
                 <i class="fa fa-warning"></i>
               </span>
             </div>
-            <p class="help is-danger">This email is invalid</p>
+            <p v-show="errors.has('email')" class="help is-danger">This email is invalid</p>
           </div>
           
           <div class="field">
             <label class="label">Subject</label>
-            <div class="input">
-              <input class="input" type="text" placeholder="Email Subject">
+            <div class="control">
+              <input class="input" type="text" placeholder="Email subject">
             </div>
           </div>
           
@@ -86,7 +86,7 @@ fixed_navbar: true
               <button class="button is-link">Submit</button>
             </div>
             <div class="control">
-              <button class="button is-text">Cancel</button>
+              <button class="button is-danger">Cancel</button>
             </div>
           </div>
         </form>
