@@ -13,7 +13,6 @@ At my workplace, we recently purchased a couple of Surface Hubs and a Crestron R
 
 This post will cover creating new Room Mailboxes both on premise and in O365 (Hybrid) as well as setting up Skype for Business accounts on prem (Lync 2013 Server) and on prem Active Directory accounts. Of course if you are 100% online then this could still be adapted to suit your needs.
 
-----
 
 # **Using an existing Room Mailbox (on-Premise)**
 ## Set Calendaring Options for existing Room Mailbox
@@ -46,9 +45,8 @@ Enable-CsMeetingRoom -Identity RoomMailbox@domain.com -RegistrarPool pool@domain
 ## Enable Active Directory Account and Set Password
 By default, a Meeting Room mailbox has an AD account but it is disabled. So we need to reset the password, ensure it never expires and enable the account. This can all be done from ADUC.
 
-----
 
-# Create a new Room Mailbox – Exchange Online with AD and Lync on prem
+# **Create a new Room Mailbox – Exchange Online with AD and Lync on prem**
 ## Create the Exchagne online Meeting Room account
 
 
@@ -80,6 +78,7 @@ New-Mailbox –Room -Name "Skype Meeting Room" -RoomMailboxPassword (ConvertTo-S
 
 
 4. Now that the room mailbox is created we can apply the same calendar processing rules as before.
+
 ``` powershell
 Set-CalendarProcessing -Identity RoomMailbox@domain.com -AutomateProcessing AutoAccept -AddOrganizerToSubject $false -RemovePrivateProperty $false -DeleteComments $false -DeleteSubject $false –AddAdditionalResponse $true –AdditionalResponse "Your meeting is now scheduled and if it was enabled as a Skype Meeting will provide a seamless click-to-join experience from the conference room"
 ```
@@ -91,7 +90,7 @@ Set-CalendarProcessing -Identity RoomMailbox@domain.com -AutomateProcessing Auto
 7. Assign a licence to this account for both Exchange and Skype for Business
 
 
-##Create the Remote Mailbox in Exchange on prem
+## Create the Remote Mailbox in Exchange on prem
 1. Open your Exchange MMC and click on Recipient Configuration –> Mail Contact
 
 2. From the right hand side select “New Remote Mailbox”
@@ -119,6 +118,7 @@ Set-CalendarProcessing -Identity RoomMailbox@domain.com -AutomateProcessing Auto
 ## Enable Skype Room account on the on prem Lync (or Skype) Server
 In my current environment we are running in Hybrid so it’s easier to Lync enable the mailbox on-prem and move the account to Skype for Business online at a later stage.
 1. Logon to your Lync (or Skype) server and access the Lync Management Shell
+
 2. Execute the below command replacing the Identity with the Meeting Room UPN you created above. The Registrar Pool is the Lync front-end server that you want your users to be homed on.
 ``` powershell
 Enable-CsMeetingRoom -Identity meetingroom@domain.com -RegistrarPool pool.domain.com -SipAddressType EmailAddress
