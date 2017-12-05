@@ -15,7 +15,7 @@ This post will cover creating new Room Mailboxes both on premise and in O365 (Hy
 
 ----
 
-# Using an existing Room Mailbox (on-Premise)
+# **Using an existing Room Mailbox (on-Premise)**
 ## Set Calendaring Options for existing Room Mailbox
 First of all we need to set the calendaring options for your existing Room Mailbox.
 
@@ -29,8 +29,12 @@ Set-CalendarProcessing -Identity RoomMailbox@domain.com -AutomateProcessing Auto
 ``` powershell
 Set-Mailbox -Identity BNETSTRL10@sunwater.com.au -MailTip "This room is equipped to support Skype for Business Meetings"
 ```
+
+
 ## Enable Lync (or Skype for Business) account for the Room Mailbox
 Now that the Room Mailbox is setup to auto-process calendar invites we need to Lync (or Skype) enable the account. We aren’t going to enable the account as a user though, we will enablet his account as a CsMeetingRoom which will enable Skype Meeting functionality.
+
+
 1. Switch over to your Lync Management Shell. Again, replace RoomMailbox@domain.com with the UPN of the Room Mailbox you specified earlier
 ``` powershell
 Enable-CsMeetingRoom -Identity RoomMailbox@domain.com -RegistrarPool pool@domain.com -SipAddressType EmailAddress
@@ -46,10 +50,14 @@ By default, a Meeting Room mailbox has an AD account but it is disabled. So we n
 
 # Create a new Room Mailbox – Exchange Online with AD and Lync on prem
 ## Create the Exchagne online Meeting Room account
+
+
 1. Connect to Exchange Online to provision a new Room Mailbox.
     Ensure you have the [MSOL connector](https://www.microsoft.com/en-us/download/details.aspx?id=41950) installed and open Powershell as an Admin.
 
+
 2. The below commands will connect you to O365 via Powershell to be able to execute the remainder of the Mailbox setup. Execute one per line.
+
 ``` powershell
 Import-Module MsOnline
 
@@ -60,7 +68,9 @@ $exchSession = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUr
 Import-PSSession $exchSession -DisableNameChecking -AllowClobber
 ```
 
+
 3. Once you are connected to O365 run the below command to create a new Room Mailbox.
+
 
 ``` powershell
 $newUser=RoomMailbox@domain.com
@@ -68,13 +78,16 @@ $newUser=RoomMailbox@domain.com
 New-Mailbox –Room -Name "Skype Meeting Room" -RoomMailboxPassword (ConvertTo-SecureString –String "P@ssw0rd1" -AsPlainText -Force) -EnableRoomMailboxAccount $true
 ```
 
+
 4. Now that the room mailbox is created we can apply the same calendar processing rules as before.
 ``` powershell
 Set-CalendarProcessing -Identity RoomMailbox@domain.com -AutomateProcessing AutoAccept -AddOrganizerToSubject $false -RemovePrivateProperty $false -DeleteComments $false -DeleteSubject $false –AddAdditionalResponse $true –AdditionalResponse "Your meeting is now scheduled and if it was enabled as a Skype Meeting will provide a seamless click-to-join experience from the conference room"
 ```
 
 5. Log into the Office 365 Portal. Click on Active Users and find the new account you just created above.
+
 6. Change the accounts Email Address/UPN to be MeetingRoom@domain.com (by default this account will have been created with a domain.onmicrosoft.com address)
+
 7. Assign a licence to this account for both Exchange and Skype for Business
 
 
