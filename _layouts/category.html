@@ -5,47 +5,47 @@ fixed_navbar: true
 ---
 
 <div class="container">
-    {% include navbar.html boxed=true %}
-  </div>
+  {% include navbar.html fixed=true has_container=true boxed=true %}
+</div>
   
-    <section class="section">
-      <div class="container">
-        <div class="columns is-multiline is-centered">
-          {% for post in site.categories[page.category] %}
-          <article class="column is-9">
-            <a href="{{ post.url }}">
-              <p class="title is-1 is-spaced has-text-dark" >
-                {{ post.name }}
-              </p>
-              </a>
-              <div class="subtitle is-6 has-text-grey-light">
-                <span class="icon has-text-primary"><i class="fa fa-calendar"></i></span>&nbsp;&nbsp;&nbsp;<span datetime="{{ post.date | date_to_xmlschema }}">
-                  {{ post.date | date: '%B %d, %Y' }}
-                  {% if post.last_modified_at %}
-                  (Updated: <time datetime="{{ post.last_modified_at | date_to_xmlschema }}">{{ post.last_modified_at | date: "%b %-d, %Y" }}</time>)
-                  {% endif %}
-                </span>
-                <br/>
-                <span class="icon has-text-primary"><i class="fa fa-clock-o"></i></span><span>{% include read_time.html %}</span>
-                <br/>
-                <a class="has-text-grey-light is-capitalized" href="/category/{{ category }}">
-                  <span class="icon has-text-primary"><i class="fa fa-tag"></i></span>&nbsp;&nbsp;&nbsp;&nbsp;
-                  {% for category in post.categories %}
-                  <span>{{ category }}</span>
-                  {% endfor %}
-                </a>
-            </div>
-             <br/>
-            <div class="content">
-              {{ post.content }}
-            </div>
-          </article>
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline is-centered">
+      {% for post in site.categories[page.category] %}
+      <div class="column is-9">
+        <a href="{{ post.url }}">
+          <p class="title is-1 is-spaced has-text-dark" >
+            {{ post.name }}
+          </p>
+        </a>
+        <div class="subtitle is-6 has-text-grey-light">
+          <span class="icon has-text-primary"><i class="fa fa-calendar"></i></span>&nbsp;&nbsp;&nbsp;<span datetime="{{ post.date | date_to_xmlschema }}">
+            {{ post.date | date: '%B %d, %Y' }}
+            {% if post.last_modified_at %}
+            (Updated: <time datetime="{{ post.last_modified_at | date_to_xmlschema }}">{{ post.last_modified_at | date: "%b %-d, %Y" }}</time>)
+            {% endif %}
+          </span>
           <br/>
+          <span class="icon has-text-primary"><i class="fa fa-clock-o"></i></span><span>{% include read_time.html %}</span>
           <br/>
-          <hr>
-          <br/>
-          <br/>
-          {% endfor %}
+          <a class="has-text-grey-light is-capitalized" href="/category/{{ category }}">
+            <span class="icon has-text-primary"><i class="fa fa-tag"></i></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            {% for category in post.categories %}
+            <span>{{ category }}</span>
+            {% endfor %}
+          </a>
         </div>
+        <br/>
+        <div class="content">
+          {{ post.content }}
+        </div>
+      <br/>
+      <br/>
+      <hr>
+      <br/>
+      <br/>
       </div>
-    </section>
+      {% endfor %}
+    </div>
+  </div>
+</section>

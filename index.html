@@ -31,13 +31,11 @@ fixed_navbar: true
           <a class="has-text-grey-light is-capitalized" href="/category/{{ category }}">
             <span class="icon has-text-primary"><i class="fa fa-tag"></i></span>&nbsp;&nbsp;&nbsp;&nbsp;
             {% for category in post.categories %}
-            <span>
-              {{ category }}
-            </span>
+            <span>{{ category }}</span>
             {% endfor %}
           </a>
-      </div>
-      <br/>
+        </div>
+        <br/>
         <div class="content">
           {{ post.content }}
         </div>

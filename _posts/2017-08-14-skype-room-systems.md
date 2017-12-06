@@ -25,7 +25,7 @@ First of all we need to set the calendaring options for your existing Room Mailb
 
     `Set-CalendarProcessing -Identity RoomMailbox@domain.com -AutomateProcessing AutoAccept -AddOrganizerToSubject $false -RemovePrivateProperty $false -DeleteComments $false -DeleteSubject $false –AddAdditionalResponse $true –AdditionalResponse "Your meeting is now scheduled and if it was enabled as a Skype Meeting will provide a seamless click-to-join experience from the conference room"`
 
-</br>
+<br/>
 2. Optional – We can also set a Tooltip so that when users book this room as a regular room (IE. not as a Skype Meeting) it will remind them that this particular room is Skype Meeting Enabled.
 
     `Set-Mailbox -Identity BNETSTRL10@sunwater.com.au -MailTip "This room is equipped to support Skype for Business Meetings"`
@@ -64,19 +64,20 @@ By default, a Meeting Room mailbox has an AD account but it is disabled. So we n
     Import-PSSession $exchSession -DisableNameChecking -AllowClobber
     ```
 
-<br/>
 3. Once you are connected to O365 run the below command to create a new Room Mailbox.
 
     `$newUser=RoomMailbox@domain.com`
 
     `New-Mailbox –Room -Name "Skype Meeting Room" -RoomMailboxPassword (ConvertTo-SecureString –String "P@ssw0rd1" -AsPlainText -Force) -EnableRoomMailboxAccount $true`
 
-<br/>
+
+
 4. Now that the room mailbox is created we can apply the same calendar processing rules as before.
 
     `Set-CalendarProcessing -Identity RoomMailbox@domain.com -AutomateProcessing AutoAccept -AddOrganizerToSubject $false -RemovePrivateProperty $false -DeleteComments $false -DeleteSubject $false –AddAdditionalResponse $true –AdditionalResponse "Your meeting is now scheduled and if it was enabled as a Skype Meeting will provide a seamless click-to-join experience from the conference room"`
 
-<br/>
+
+
 5. Log into the Office 365 Portal. Click on Active Users and find the new account you just created above.
 
 6. Change the accounts Email Address/UPN to be MeetingRoom@domain.com (by default this account will have been created with a domain.onmicrosoft.com address)
