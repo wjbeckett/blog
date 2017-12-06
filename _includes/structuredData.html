@@ -6,9 +6,9 @@
        "genre":"{{ include.category }}",
        "keywords":"{{ include.keywords }}",
        "wordCount":"{{ wordcount }}",
-       "url":"https://williambeckett.me/{{ include.link }}",
+       "url":"https://williambeckett.me{{ include.link }}",
        "datePublished":"{{ include.date | | date: '%Y-%m-%d' }}",
-       "dateModified":"{{ include.last_modified_at | | date: '%Y-%m-%d' }}",
+       "dateModified":"{{ include.dateModified | | date: '%Y-%m-%d' }}",
        "author":{  
           "@type":"Person",
           "name":"William Beckett",
@@ -41,7 +41,7 @@
        },
        "mainEntityOfPage":{  
           "@type":"WebPage",
-          "@id":"https://williambeckett.me/{{ include.link }}"
+          "@id":"https://williambeckett.me{{ include.link }}"
        },
        "articleBody":"{{ include.content | strip_html | xml_escape | normalize_whitepace | strip_newlines | strip }}"
     }

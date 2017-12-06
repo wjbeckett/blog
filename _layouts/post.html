@@ -39,11 +39,14 @@ route: blog
           <br/>
           <span class="icon has-text-primary"><i class="fa fa-clock-o"></i></span><span>{% include read_time.html %}</span>
           <br/>
-          {% for category in page.categories %}
           <a class="has-text-grey-light is-capitalized" href="/category/{{ category }}">
-            <span class="icon has-text-primary"><i class="fa fa-tag"></i></span>&nbsp;&nbsp;&nbsp;&nbsp;<span>{{ category }}</span>
+            <span class="icon has-text-primary"><i class="fa fa-tag"></i></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>
+            {% for category in page.categories %}
+              {{ category }}
+            {% endfor %}
+            </span>
           </a>
-          {% endfor %}
         </div>
         <br/>
         <div class="content">
