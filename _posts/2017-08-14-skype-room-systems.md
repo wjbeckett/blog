@@ -47,12 +47,11 @@ By default, a Meeting Room mailbox has an AD account but it is disabled. So we n
 
 
 # **Create a new Room Mailbox – Exchange Online with AD and Lync on prem**
-## Create the Exchagne online Meeting Room account
+## Create the Exchange online Meeting Room account
 
 
 1. Connect to Exchange Online to provision a new Room Mailbox.
     Ensure you have the [MSOL connector](https://www.microsoft.com/en-us/download/details.aspx?id=41950) installed and open Powershell as an Admin.
-
 
 2. The below commands will connect you to O365 via Powershell to be able to execute the remainder of the Mailbox setup. Execute one per line.
 
@@ -66,9 +65,7 @@ $exchSession = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUr
 Import-PSSession $exchSession -DisableNameChecking -AllowClobber
 ```
 
-
 3. Once you are connected to O365 run the below command to create a new Room Mailbox.
-
 
 ``` powershell
 $newUser=RoomMailbox@domain.com
@@ -76,9 +73,7 @@ $newUser=RoomMailbox@domain.com
 New-Mailbox –Room -Name "Skype Meeting Room" -RoomMailboxPassword (ConvertTo-SecureString –String "P@ssw0rd1" -AsPlainText -Force) -EnableRoomMailboxAccount $true
 ```
 
-
 4. Now that the room mailbox is created we can apply the same calendar processing rules as before.
-
 ``` powershell
 Set-CalendarProcessing -Identity RoomMailbox@domain.com -AutomateProcessing AutoAccept -AddOrganizerToSubject $false -RemovePrivateProperty $false -DeleteComments $false -DeleteSubject $false –AddAdditionalResponse $true –AdditionalResponse "Your meeting is now scheduled and if it was enabled as a Skype Meeting will provide a seamless click-to-join experience from the conference room"
 ```
