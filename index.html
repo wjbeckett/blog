@@ -28,11 +28,14 @@ fixed_navbar: true
           <br/>
           <span class="icon has-text-primary"><i class="fa fa-clock-o"></i></span><span>{% include read_time.html %}</span>
           <br/>
-          {% for category in post.categories %}
           <a class="has-text-grey-light is-capitalized" href="/category/{{ category }}">
-            <span class="icon has-text-primary"><i class="fa fa-tag"></i></span>&nbsp;&nbsp;&nbsp;&nbsp;<span>{{ category }}</span>
+            <span class="icon has-text-primary"><i class="fa fa-tag"></i></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            {% for category in post.categories %}
+            <span>
+              {{ category }}
+            </span>
+            {% endfor %}
           </a>
-          {% endfor %}
       </div>
       <br/>
         <div class="content">
