@@ -1,0 +1,47 @@
+<script type="application/ld+json">
+    {  
+       "@context":"http://schema.org",
+       "@type":"BlogPosting",
+       "headline":"{{ include.headline }}",
+       "genre":"{{ include.category }}",
+       "keywords":"{{ include.keywords }}",
+       "wordCount":"{{ wordcount }}",
+       "url":"{{ siteurl }}/{{ include.link }}",
+       "datePublished":"{{ include.date | | date: '%Y-%m-%d' }}",
+       "author":{  
+          "@type":"Person",
+          "name":"William Beckett",
+          "sameAs":[  
+            "https://twitter.com/wjbeckett",
+            "https://github.com/wjbeckett",
+            "https://plus.google.com/+WilliamBeckett87"
+          ]
+       },
+       "publisher":{  
+          "@type":"Person",
+          "name":"William Beckett",
+          "sameAs":[  
+            "https://twitter.com/wjbeckett",
+            "https://github.com/wjbeckett",
+            "https://plus.google.com/+WilliamBeckett87"
+          ],
+          "logo": {
+              "@type": "ImageObject",
+              "contentUrl": "{{ sireurl }}/images/logo.png",
+                "url": "{{ siteurl }}"
+        }
+       },
+       "image":{  
+          "@type":"ImageObject",
+          "contentUrl":"{{ siteurl }}/images/cardboard.jpg",
+          "url":"{{ siteurl }}",
+          "height":"450",
+          "width":"1000"
+       },
+       "mainEntityOfPage":{  
+          "@type":"WebPage",
+          "@id":"{{ siteurl }}/{{ include.link }}"
+       },
+       "articleBody":"{{ include.content | strip_html | xml_escape | normalize_whitepace | strip_newlines | strip }}"
+    }
+    </script>
