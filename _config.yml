@@ -12,7 +12,7 @@ github_username:  wjbeckett
 
 # Build settings
 markdown: kramdown
-permalink: pretty
+permalink: /:year/:month/:title
 exclude: [
   "node_modules",
   "LICENSE",
