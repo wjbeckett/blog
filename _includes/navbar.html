@@ -29,16 +29,16 @@
 
   <div id="navMenu{{ include.id }}" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item {% if page.category == 'nutanix' %}is-active{% endif %}" href="/category/nutanix">
+      <a class="navbar-item {% if page.category == 'nutanix' || post.category %}is-active{% endif %}" href="/category/nutanix">
         Nutanix
       </a>
-      <a class="navbar-item {% if page.category == 'citrix' %}is-active{% endif %}" href="/category/citrix" >
+      <a class="navbar-item {% if page.category == 'citrix' || post.category %}is-active{% endif %}" href="/category/citrix" >
         Citrix
       </a>
-      <a class="navbar-item {% if page.cetegory == 'microsoft' %}is-active{% endif %}" href="/category/microsoft" >
+      <a class="navbar-item {% if page.cetegory == 'microsoft' || post.category %}is-active{% endif %}" href="/category/microsoft" >
         Microsoft
       </a>
-      <a class="navbar-item {% if page.category == 'personal' %}is-active{% endif %}" href="/category/personal" >
+      <a class="navbar-item {% if page.category == 'personal' || post.category %}is-active{% endif %}" href="/category/personal" >
         Personal
       </a>
       <a class="navbar-item {% if page.route == 'about' %}is-active{% endif %}" href="/about" >
