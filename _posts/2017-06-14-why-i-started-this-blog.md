@@ -10,6 +10,18 @@ categories: [personal]
 read_time: false
 ---
 
+<article class="message is-warning">
+  <div class="message-header">
+    <p>Preface</p>
+    <button class="delete" aria-label="delete"></button>
+  </div>
+  <div class="message-body">
+    Just wanted to preface this with a general statement - I am not employed by Nutanix now, nor have I ever been. I realze that most of the posts in this blog will be about the [Nutanix](https://www.nutanix.com/) platform however this is only because I work with the Nutanix platform on a day to day basis as it is my current core role.
+
+    There is no sponsored posts or anyhting going on here.
+  </div>
+</article>
+
 I have thought about starting a blog for a long time now but never got around to doing it. After working in IT for a while I realized it’d be handy to have a place to store my findings & experiences which I can refer back to or reflect on at a later date. Therein lies the purpose of this blog – a place to store my experiences and allow others to read my experiences and potentially help those who may have come across similar things in their careers.
 
 
