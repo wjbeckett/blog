@@ -26,6 +26,7 @@ Here is the process I followed which worked well for me.
 
 
 Wait for all services to report that they have started:
+```
 CVM: xxx.xxx.xxx.xxx UP
 
      Zeus UP [3704, 3727, 3728, 3729, 3807, 3821] 
@@ -48,6 +49,6 @@ CVM: xxx.xxx.xxx.xxx UP
      ClusterHealth UP [6317, 6342, 6343, 6446, 6468, 6469, 6604, 6605, 6606, 6607] 
      Janus UP [6365, 6444, 6445, 6584] 
      NutanixGuestTools UP [6377, 6403, 6404]
-
+```
 
 Now that the Cluster is running you can go ahead and start your Guest VMs.

@@ -25,7 +25,7 @@ First of all we need to set the calendaring options for your existing Room Mailb
 
     `Set-CalendarProcessing -Identity RoomMailbox@domain.com -AutomateProcessing AutoAccept -AddOrganizerToSubject $false -RemovePrivateProperty $false -DeleteComments $false -DeleteSubject $false –AddAdditionalResponse $true –AdditionalResponse "Your meeting is now scheduled and if it was enabled as a Skype Meeting will provide a seamless click-to-join experience from the conference room"`
 
-
+</br>
 2. Optional – We can also set a Tooltip so that when users book this room as a regular room (IE. not as a Skype Meeting) it will remind them that this particular room is Skype Meeting Enabled.
 
     `Set-Mailbox -Identity BNETSTRL10@sunwater.com.au -MailTip "This room is equipped to support Skype for Business Meetings"`
@@ -91,10 +91,10 @@ By default, a Meeting Room mailbox has an AD account but it is disabled. So we n
 
 3. Select Room Mailbox and click Next
 
-4. Specify the on premise OU as:<br/>
+4. Specify the on premise OU as:
+
     `YourDomain.com/Exchange/Mailboxes`
 
-<br/>
 5. Fill in the Name (ignoring the Firstname, Initials, Lastname fields)
 
 6. Enter the UPN as the same as what you created in the O365 Room Mailbox – In this example it would be meetingroom@domain.com, and click Next.
@@ -117,7 +117,6 @@ In my current environment we are running in Hybrid so it’s easier to Lync enab
 2. Execute the below command replacing the Identity with the Meeting Room UPN you created above. The Registrar Pool is the Lync front-end server that you want your users to be homed on.
 
 `Enable-CsMeetingRoom -Identity meetingroom@domain.com -RegistrarPool pool.domain.com -SipAddressType EmailAddress`
-
 <br/>
 ## Enable Active Directory Account and Set Password
 By default, a Meeting Room mailbox has an AD account but it is disabled. So we need to reset the password, ensure it never expires and enable the account. This can all be done from ADUC.
