@@ -6,8 +6,9 @@
        "genre":"{{ include.category }}",
        "keywords":"{{ include.keywords }}",
        "wordCount":"{{ wordcount }}",
-       "url":"{{ siteurl }}/{{ include.link }}",
+       "url":"https://williambeckett.me/{{ include.link }}",
        "datePublished":"{{ include.date | | date: '%Y-%m-%d' }}",
+       "dateModified":"{{ include.modified | | date: '%Y-%m-%d' }}",
        "author":{  
           "@type":"Person",
           "name":"William Beckett",
@@ -18,29 +19,29 @@
           ]
        },
        "publisher":{  
-          "@type":"Person",
+          "@type":"Organization",
           "name":"William Beckett",
+          "logo": {
+            "@type": "ImageObject",
+            "contentUrl": "https://williambeckett.me/images/logo.png",
+              "url": "https://williambeckett.me",
           "sameAs":[  
             "https://twitter.com/wjbeckett",
             "https://github.com/wjbeckett",
             "https://plus.google.com/+WilliamBeckett87"
-          ],
-          "logo": {
-              "@type": "ImageObject",
-              "contentUrl": "{{ sireurl }}/images/logo.png",
-                "url": "{{ siteurl }}"
-        }
+          ]
+        },
        },
        "image":{  
           "@type":"ImageObject",
-          "contentUrl":"{{ siteurl }}/images/banner.jpg",
-          "url":"{{ siteurl }}",
+          "contentUrl":"https://williambeckett.me/images/banner.jpg",
+          "url":"https://williambeckett.me",
           "height":"450",
           "width":"1000"
        },
        "mainEntityOfPage":{  
           "@type":"WebPage",
-          "@id":"{{ siteurl }}/{{ include.link }}"
+          "@id":"https://williambeckett.me/{{ include.link }}"
        },
        "articleBody":"{{ include.content | strip_html | xml_escape | normalize_whitepace | strip_newlines | strip }}"
     }

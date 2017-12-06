@@ -4,6 +4,7 @@ layout: post
 introduction: "At my workplace, we recently purchased a couple of Surface Hubs and a Crestron RL2 Skype Room System to play with and integrate into the business. One issue I came across that took a while to figure out was how to correctly set up a hybrid account for these devices to use"
 name: "Skype Room System and Surface Hub Accounts in a Hybrid Setup"
 date: 2017-08-14
+permalink: /:year/:month/:title
 categories: [skype, microsoft]
 read_time: true
 ---
