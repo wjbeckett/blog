@@ -8,7 +8,7 @@
        "wordCount":"{{ wordcount }}",
        "url":"https://williambeckett.me/{{ include.link }}",
        "datePublished":"{{ include.date | | date: '%Y-%m-%d' }}",
-       "dateModified":"{{ include.modified | | date: '%Y-%m-%d' }}",
+       "dateModified":"{{ include.last_modified_at | | date: '%Y-%m-%d' }}",
        "author":{  
           "@type":"Person",
           "name":"William Beckett",

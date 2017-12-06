@@ -1,6 +1,6 @@
 
 # Site settings
-title:         "William Beckett"
+title: "William Beckett"
 email: your-email@domain.com
 description: >
   Nutanix and other things I come across
@@ -9,6 +9,8 @@ url: "https://wjbeckett.netlify.com"
 words_per_minute: 180
 twitter_username: wjbeckett
 github_username:  wjbeckett
+plugins:
+  - jekyll-sitemap
 
 # Build settings
 markdown: kramdown

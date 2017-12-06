@@ -12,6 +12,7 @@ route: blog
   content=page.content
   link=page.permalink
   date=page.date
+  dateModified=page.last_modified_at
 %}
 
 <div class="container">
@@ -30,7 +31,11 @@ route: blog
         <div class="subtitle is-6 has-text-grey-light">
           <span class="icon has-text-primary"><i class="fa fa-calendar"></i></span>&nbsp;&nbsp;&nbsp;<span datetime="{{ page.date | date_to_xmlschema }}">
             {{ page.date | date: '%B %d, %Y' }}
+            {% if page.last_modified_at %}
+            (Updated: <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ page.last_modified_at | date: "%b %-d, %Y" }}</time>)
+            {% endif %}
           </span>
+          
           <br/>
           <span class="icon has-text-primary"><i class="fa fa-clock-o"></i></span><span>{% include read_time.html %}</span>
           <br/>

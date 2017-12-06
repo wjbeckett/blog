@@ -4,6 +4,7 @@ layout: post
 introduction: "At my workplace, we recently purchased a couple of Surface Hubs and a Crestron RL2 Skype Room System to play with and integrate into the business. One issue I came across that took a while to figure out was how to correctly set up a hybrid account for these devices to use"
 name: "Skype Room System and Surface Hub Accounts in a Hybrid Setup"
 date: 2017-08-14
+last_modified_at: 
 permalink: /:year/:month/:title
 categories: [skype, microsoft]
 read_time: true
@@ -21,14 +22,10 @@ First of all we need to set the calendaring options for your existing Room Mailb
 
 
 1. Open an Exchange Management Shell from a machine with the Exchange Management Tools installed.The first command below is just to ensure auto-accept is turned on plus disabling a few properties as well as adding an auto response. This is typically already configured for existing Room account but this just makes sure.Replace roommailbox@domain.com with the UPN of the account you want to update.
-``` powershell
-Set-CalendarProcessing -Identity RoomMailbox@domain.com -AutomateProcessing AutoAccept -AddOrganizerToSubject $false -RemovePrivateProperty $false -DeleteComments $false -DeleteSubject $false –AddAdditionalResponse $true –AdditionalResponse "Your meeting is now scheduled and if it was enabled as a Skype Meeting will provide a seamless click-to-join experience from the conference room"
-```
+    `Set-CalendarProcessing -Identity RoomMailbox@domain.com -AutomateProcessing AutoAccept -AddOrganizerToSubject $false -RemovePrivateProperty $false -DeleteComments $false -DeleteSubject $false –AddAdditionalResponse $true –AdditionalResponse "Your meeting is now scheduled and if it was enabled as a Skype Meeting will provide a seamless click-to-join experience from the conference room"`
  
 2. Optional – We can also set a Tooltip so that when users book this room as a regular room (IE. not as a Skype Meeting) it will remind them that this particular room is Skype Meeting Enabled.
-``` powershell
-Set-Mailbox -Identity BNETSTRL10@sunwater.com.au -MailTip "This room is equipped to support Skype for Business Meetings"
-```
+    `Set-Mailbox -Identity BNETSTRL10@sunwater.com.au -MailTip "This room is equipped to support Skype for Business Meetings"`
 
 
 ## Enable Lync (or Skype for Business) account for the Room Mailbox
@@ -36,10 +33,8 @@ Now that the Room Mailbox is setup to auto-process calendar invites we need to L
 
 
 1. Switch over to your Lync Management Shell. Again, replace RoomMailbox@domain.com with the UPN of the Room Mailbox you specified earlier
-``` powershell
-Enable-CsMeetingRoom -Identity RoomMailbox@domain.com -RegistrarPool pool@domain.com -SipAddressType EmailAddress
-```
-   *Note: The RegistrarPool is the Lync server you want to home your user account on.*
+    `Enable-CsMeetingRoom -Identity RoomMailbox@domain.com -RegistrarPool pool@domain.com -SipAddressType EmailAddress`
+    *Note: The RegistrarPool is the Lync server you want to home your user account on.*
 
 
 
@@ -56,28 +51,24 @@ By default, a Meeting Room mailbox has an AD account but it is disabled. So we n
 
 2. The below commands will connect you to O365 via Powershell to be able to execute the remainder of the Mailbox setup. Execute one per line.
 
-``` powershell
-Import-Module MsOnline
+    `Import-Module MsOnline`
 
-Connect-MsolService -credential $credential
+    `Connect-MsolService -credential $credential`
 
-$exchSession = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://ps.outlook.com/powershell -Credential $credential -Authentication Basic -AllowRedirection
+    `$exchSession = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://ps.outlook.com/powershell -Credential $credential -Authentication Basic -AllowRedirection`
 
-Import-PSSession $exchSession -DisableNameChecking -AllowClobber
-```
+    `Import-PSSession $exchSession -DisableNameChecking -AllowClobber`
+    
 
 3. Once you are connected to O365 run the below command to create a new Room Mailbox.
 
-``` powershell
-$newUser=RoomMailbox@domain.com
+    `$newUser=RoomMailbox@domain.com`
 
-New-Mailbox –Room -Name "Skype Meeting Room" -RoomMailboxPassword (ConvertTo-SecureString –String "P@ssw0rd1" -AsPlainText -Force) -EnableRoomMailboxAccount $true
-```
+    `New-Mailbox –Room -Name "Skype Meeting Room" -RoomMailboxPassword (ConvertTo-SecureString –String "P@ssw0rd1" -AsPlainText -Force) -EnableRoomMailboxAccount $true`
+
 
 4. Now that the room mailbox is created we can apply the same calendar processing rules as before.
-``` powershell
-Set-CalendarProcessing -Identity RoomMailbox@domain.com -AutomateProcessing AutoAccept -AddOrganizerToSubject $false -RemovePrivateProperty $false -DeleteComments $false -DeleteSubject $false –AddAdditionalResponse $true –AdditionalResponse "Your meeting is now scheduled and if it was enabled as a Skype Meeting will provide a seamless click-to-join experience from the conference room"
-```
+    `Set-CalendarProcessing -Identity RoomMailbox@domain.com -AutomateProcessing AutoAccept -AddOrganizerToSubject $false -RemovePrivateProperty $false -DeleteComments $false -DeleteSubject $false –AddAdditionalResponse $true –AdditionalResponse "Your meeting is now scheduled and if it was enabled as a Skype Meeting will provide a seamless click-to-join experience from the conference room"`
 
 5. Log into the Office 365 Portal. Click on Active Users and find the new account you just created above.
 
@@ -94,7 +85,7 @@ Set-CalendarProcessing -Identity RoomMailbox@domain.com -AutomateProcessing Auto
 3. Select Room Mailbox and click Next
 
 4. Specify the on premise OU as:
-    YourDomain.com/Exchange/Mailboxes
+    `YourDomain.com/Exchange/Mailboxes`
 
 5. Fill in the Name (ignoring the Firstname, Initials, Lastname fields)
 
@@ -116,9 +107,7 @@ In my current environment we are running in Hybrid so it’s easier to Lync enab
 1. Logon to your Lync (or Skype) server and access the Lync Management Shell
 
 2. Execute the below command replacing the Identity with the Meeting Room UPN you created above. The Registrar Pool is the Lync front-end server that you want your users to be homed on.
-``` powershell
-Enable-CsMeetingRoom -Identity meetingroom@domain.com -RegistrarPool pool.domain.com -SipAddressType EmailAddress
-```
+`Enable-CsMeetingRoom -Identity meetingroom@domain.com -RegistrarPool pool.domain.com -SipAddressType EmailAddress`
 
 ## Enable Active Directory Account and Set Password
 By default, a Meeting Room mailbox has an AD account but it is disabled. So we need to reset the password, ensure it never expires and enable the account. This can all be done from ADUC.
