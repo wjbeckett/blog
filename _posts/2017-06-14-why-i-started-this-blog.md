@@ -13,10 +13,9 @@ read_time: false
 <article class="message is-warning">
   <div class="message-header">
     <p>Preface</p>
-    <button class="delete" aria-label="delete"></button>
   </div>
   <div class="message-body">
-    Just wanted to preface this with a general statement - I am not employed by Nutanix now, nor have I ever been. I realze that most of the posts in this blog will be about the [Nutanix](https://www.nutanix.com/) platform however this is only because I work with the Nutanix platform on a day to day basis as it is my current core role.
+    Just wanted to preface this with a general statement - I am not employed by Nutanix now, nor have I ever been. I realze that most of the posts in this blog will be about the <a href="https://www.nutanix.com/">Nutanix</a> platform however this is only because I work with the Nutanix platform on a day to day basis as it is my current core role.
 
     There is no sponsored posts or anyhting going on here.
   </div>
