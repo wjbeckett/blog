@@ -7,7 +7,7 @@ date: 2017-06-14
 last_modified_at:
 permalink: /2017/06/why-i-started-this-blog
 categories: [personal]
-read_time: false
+read_time: true
 ---
 
 <article class="message is-warning">
