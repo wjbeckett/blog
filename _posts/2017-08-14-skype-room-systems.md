@@ -25,7 +25,7 @@ First of all we need to set the calendaring options for your existing Room Mailb
 
     `Set-CalendarProcessing -Identity RoomMailbox@domain.com -AutomateProcessing AutoAccept -AddOrganizerToSubject $false -RemovePrivateProperty $false -DeleteComments $false -DeleteSubject $false –AddAdditionalResponse $true –AdditionalResponse "Your meeting is now scheduled and if it was enabled as a Skype Meeting will provide a seamless click-to-join experience from the conference room"`
 
- 
+
 2. Optional – We can also set a Tooltip so that when users book this room as a regular room (IE. not as a Skype Meeting) it will remind them that this particular room is Skype Meeting Enabled.
 
     `Set-Mailbox -Identity BNETSTRL10@sunwater.com.au -MailTip "This room is equipped to support Skype for Business Meetings"`
@@ -40,7 +40,6 @@ Now that the Room Mailbox is setup to auto-process calendar invites we need to L
     `Enable-CsMeetingRoom -Identity RoomMailbox@domain.com -RegistrarPool pool@domain.com -SipAddressType EmailAddress`
 
     *Note: The RegistrarPool is the Lync server you want to home your user account on.*
-
 
 
 ## Enable Active Directory Account and Set Password
@@ -65,21 +64,19 @@ By default, a Meeting Room mailbox has an AD account but it is disabled. So we n
     Import-PSSession $exchSession -DisableNameChecking -AllowClobber
     ```
 
-
-
+<br/>
 3. Once you are connected to O365 run the below command to create a new Room Mailbox.
 
     `$newUser=RoomMailbox@domain.com`
 
     `New-Mailbox –Room -Name "Skype Meeting Room" -RoomMailboxPassword (ConvertTo-SecureString –String "P@ssw0rd1" -AsPlainText -Force) -EnableRoomMailboxAccount $true`
 
-
-
+<br/>
 4. Now that the room mailbox is created we can apply the same calendar processing rules as before.
 
     `Set-CalendarProcessing -Identity RoomMailbox@domain.com -AutomateProcessing AutoAccept -AddOrganizerToSubject $false -RemovePrivateProperty $false -DeleteComments $false -DeleteSubject $false –AddAdditionalResponse $true –AdditionalResponse "Your meeting is now scheduled and if it was enabled as a Skype Meeting will provide a seamless click-to-join experience from the conference room"`
 
-
+<br/>
 5. Log into the Office 365 Portal. Click on Active Users and find the new account you just created above.
 
 6. Change the accounts Email Address/UPN to be MeetingRoom@domain.com (by default this account will have been created with a domain.onmicrosoft.com address)
@@ -94,11 +91,10 @@ By default, a Meeting Room mailbox has an AD account but it is disabled. So we n
 
 3. Select Room Mailbox and click Next
 
-4. Specify the on premise OU as:
-
+4. Specify the on premise OU as:<br/>
     `YourDomain.com/Exchange/Mailboxes`
 
-
+<br/>
 5. Fill in the Name (ignoring the Firstname, Initials, Lastname fields)
 
 6. Enter the UPN as the same as what you created in the O365 Room Mailbox – In this example it would be meetingroom@domain.com, and click Next.
@@ -122,6 +118,6 @@ In my current environment we are running in Hybrid so it’s easier to Lync enab
 
 `Enable-CsMeetingRoom -Identity meetingroom@domain.com -RegistrarPool pool.domain.com -SipAddressType EmailAddress`
 
-
+<br/>
 ## Enable Active Directory Account and Set Password
 By default, a Meeting Room mailbox has an AD account but it is disabled. So we need to reset the password, ensure it never expires and enable the account. This can all be done from ADUC.

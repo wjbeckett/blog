@@ -4,7 +4,10 @@ title: "Moving Nutanix to a New Data Center"
 introduction: "Generally, I dread moving Data Centers. This time, it was so simple and so fast I honestly wouldn’t mind doing it again."
 color: "link"
 name: "Moving Nutanix to a New Data Center"
+date: 2017-11-01 10:30:00 +1000
+last_modified_at: 
 categories: [nutanix]
+permalink: /2017/11/moving-nutanix-cluster
 read_time: true
 ---
 

@@ -5,7 +5,10 @@ introduction: "Curator service scan errors? I found out how to check and manuall
 color: "link"
 name: "Curator Scan Status Failing in Prism"
 icon: "tag"
+date: 2017-11-01 10:00:00 +1000
+last_modified_at: 
 categories: [nutanix]
+permalink: /2017/11/curator-scans-failing
 read_time: true
 ---
 

@@ -4,6 +4,8 @@ layout: post
 introduction: "Two days ago, XenDesktop 7.15 was released and yesterday the 2nd part of the fix was delivered by Microsoft as a 1GB, August 16 patch."
 name: "XenApp and Server 2016 – Black Screen at Login"
 date: 2017-08-17
+last_modified_at:
+permalink: /2017/08/xenapp-server2016-blackscreen
 categories: [citrix]
 read_time: true
 ---
