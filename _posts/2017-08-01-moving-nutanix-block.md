@@ -7,6 +7,7 @@ date: 2017-08-01
 last_modified_at: 
 permalink: /2017/08/moving-nutanix-block
 categories: [nutanix]
+comments: true
 read_time: true
 ---
 

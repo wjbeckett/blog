@@ -7,6 +7,7 @@ date: 2017-08-17
 last_modified_at:
 permalink: /2017/08/xenapp-server2016-blackscreen
 categories: [citrix]
+comments: true
 read_time: true
 ---
 

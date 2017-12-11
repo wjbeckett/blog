@@ -9,6 +9,7 @@ date: 2017-11-01 10:00:00 +1000
 last_modified_at: 
 categories: [nutanix]
 permalink: /2017/11/curator-scans-failing
+comments: true
 read_time: true
 ---
 
