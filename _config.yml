@@ -7,12 +7,38 @@ description: >
 baseurl: ""
 url: "https://williambeckett.me" 
 words_per_minute: 180
-twitter_username: wjbeckett
-github_username:  wjbeckett
+repository: "wjbeckett/blog"
+
 plugins:
   - jekyll-sitemap
 
-# Build settings
+
+# Site owner
+owner:
+  name: "William Beckett"
+  email: "william@williambeckett.me"
+  twitter_username: wjbeckett
+  github_username:  wjbeckett
+
+# Staticman
+staticman:
+  allowedFields          : ['name', 'email', 'url', 'message']
+  branch                 : "master"
+  commitMessage          : "New comment."
+  filename               : comment-{@timestamp}
+  format                 : "yml"
+  moderation             : true
+  path                   : "_data/comments/{options.slug}"
+  requiredFields         : ['name', 'email', 'message']
+  transforms:
+    email                : "md5"
+  generatedFields:
+    date:
+      type               : "date"
+      options:
+        format           : "iso8601" # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
+
+# Jekyll configuration
 markdown: kramdown
 permalink: /:year/:month/:title
 exclude: [
@@ -36,8 +62,6 @@ fontawesome:   https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-aweso
 iconic:        https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic.min.css
 ionicons:      https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css
 mdi:           https://cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css
-
-# Jekyll configuration
 
 
 # Variables
