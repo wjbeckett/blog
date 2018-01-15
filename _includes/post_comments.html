@@ -4,16 +4,24 @@
     {% if site.data.comments[page.slug] %}
       <!-- Start static comments -->
       <div id="comments" class="js-comments">
-        <h3 class="tile is-2">Comments</h3>
-        {% assign comments = site.data.comments[page.slug] | sort %}
+        <h3 class="tile is-2">
+          {% if site.data.comments[page.slug].size > 1 %}
+          {{ site.data.comments[page.slug] | size }}
+          {% endif %}
+          Comments
+        </h3>
+        {% assign comments = site.data.comments[page.slug] | where_exp:"item", "item.replying_to == blank" %}
         {% for comment in comments %}
-          {% assign avatar = comment[1].avatar %}
-          {% assign email = comment[1].email %}
-          {% assign name = comment[1].name %}
-          {% assign url = comment[1].url %}
-          {% assign date = comment[1].date %}
-          {% assign message = comment[1].message %}
-          {% include comment.html index=forloop.index avatar=avatar email=email name=name url=url date=date message=message %}
+          {% assign index       = forloop.index %}
+          {% assign r           = comment.replying_to %}
+          {% assign replying_to = r | to_integer %}
+          {% assign avatar      = comment.avatar %}
+          {% assign email       = comment.email %}
+          {% assign name        = comment.name %}
+          {% assign url         = comment.url %}
+          {% assign date        = comment.date %}
+          {% assign message     = comment.message %}
+          {% include comment.html index=index replying_to=replying_to avatar=avatar email=email name=name url=url date=date message=message %}
         {% endfor %}
       </div>
       <!-- End static comments -->
@@ -23,11 +31,11 @@
     <hr>
     <h1 class="title is-4">Leave a Comment</h1>
     <h2 class="subtitle is-6">Your email address will not be published. Required fields are marked <span class="required">*</span></h2>
-    <form id="comment-form" class="post_comments-form js-form form" method="post" action="https://api.staticman.net/v1/entry/{{ site.repository }}/{{ site.staticman.branch }}">
+    <form id="comment-form" class="post_comments-form js-form form" method="post" action="https://api.staticman.net/v2/entry/{{ site.repository }}/{{ site.staticman.branch }}">
       <div class="field">
         <label class="label" for="comment-form-message">Comment<small class="required">*</small> <small>(<a href="https://daringfireball.net/projects/markdown/">Markdown</a> is supported)</small></label>
         <div class="control">
-            <textarea class="textarea" type="text" rows="3" id="comment-form-message" name="fields[message]" tabindex="1"></textarea>
+            <textarea class="textarea" placeholder="Add a comment..." type="text" rows="3" id="comment-form-message" name="fields[message]" tabindex="1"></textarea>
         </div>
       </div>
       <div class="field">
@@ -45,6 +53,12 @@
       <div class="field" class="hidden">
         <input type="hidden" name="options[slug]" value="{{ page.slug }}">
         <input type="hidden" name="fields[hidden]"/>
+        <input type="hidden" name="options[origin]" value="{{ page.url | absolute_url }}">
+        <input type="hidden" name="options[parent]" value="{{ page.url | absolute_url }}">
+        <input type="hidden" id="comment-replying-to" name="fields[replying_to]" value="">
+        <input type="hidden" id="comment-post-id" name="options[slug]" value="{{ page.slug }}">
+        <label for="comment-form-location">Leave blank if you are a human</label>
+        <input type="text" id="comment-form-location" name="fields[hidden]" autocomplete="off">
       </div>
       <!-- Start comment form alert messaging -->
       <p class="hidden js-notification">
