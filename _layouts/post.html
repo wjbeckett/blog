@@ -40,10 +40,10 @@ route: blog
           <span class="icon has-text-primary"><i class="fa fa-clock-o"></i></span><span>{% include read_time.html %}</span>
           <br/>
           <a class="has-text-grey-light is-capitalized" href="/category/{{ category }}">
-            <span class="icon has-text-primary"><i class="fa fa-tag"></i></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="icon has-text-primary"><i class="fa fa-tag"></i></span>&nbsp;&nbsp;&nbsp;
             <span>
             {% for category in page.categories %}
-              {{ category }}
+            {{ category }}
             {% endfor %}
             </span>
           </a>
