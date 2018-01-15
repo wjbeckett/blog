@@ -7,7 +7,7 @@ date: 2018-01-15 11:30:00 +1000
 last_modified_at:
 permalink: /2018/01/PC-noip
 categories: [Nutanix]
-comments: false
+comments: true
 read_time: true
 ---
 
