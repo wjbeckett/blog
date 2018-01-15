@@ -5,9 +5,7 @@
     {{ content }}
     {% include footer.html %}
     <!-- Google Analytics -->
-    {% if jekyll.environment == 'production' %}
     {% include analytics.html %}
-    {% endif %}
     <!-- End Google Analytics -->
     <link async href="{{ "/scripts/main.min.js" | relative_url }}">
     <script>
