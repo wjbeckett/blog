@@ -38,6 +38,10 @@ exclude: [
   "bulma-docs.sass"
 ]
 
+# Staticman comments (full configuration in staticman.yml)
+staticman:
+  branch                 : "master"
+
 # Icons
 
 fontawesome:   https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
