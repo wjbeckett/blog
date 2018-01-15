@@ -6,7 +6,7 @@ name: "Prism Central VM has no IP address"
 date: 2018-01-15 11:30:00 +1000
 last_modified_at:
 permalink: /2018/01/PC-noip
-categories: [Nutanix]
+categories: [nutanix]
 comments: true
 read_time: true
 ---
