@@ -5,9 +5,6 @@
       <!-- Start static comments -->
       <div id="comments" class="js-comments">
         <h3 class="tile is-2">
-          {% if site.data.comments[page.slug].size > 1 %}
-          {{ site.data.comments[page.slug] | size }}
-          {% endif %}
           Comments
         </h3>
         {% assign comments = site.data.comments[page.slug] | where_exp:"item", "item.replying_to == blank" %}
@@ -21,7 +18,7 @@
           {% assign url         = comment.url %}
           {% assign date        = comment.date %}
           {% assign message     = comment.message %}
-          {% include comment.html index=index replying_to=replying_to avatar=avatar email=email name=name url=url date=date message=message %}
+          {% include comment.html index=forloop.index replying_to=replying_to avatar=avatar email=email name=name url=url date=date message=message %}
         {% endfor %}
       </div>
       <!-- End static comments -->
