@@ -7,7 +7,7 @@ date: 2017-07-20
 last_modified_at: 
 permalink: /2017/07/stopping-nutanix-cluster
 categories: [nutanix]
-comments: true
+comments: false
 read_time: true
 ---
 

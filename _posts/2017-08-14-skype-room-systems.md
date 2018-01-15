@@ -7,7 +7,7 @@ date: 2017-08-14
 last_modified_at: 2017-12-06
 permalink: /2017/08/skype-room-systems
 categories: [skype, microsoft]
-comments: true
+comments: false
 read_time: true
 ---
 

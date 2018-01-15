@@ -7,7 +7,7 @@ date: 2017-07-25
 last_modified_at: 
 permalink: /2017/07/restarting-cvm
 categories: [nutanix]
-comments: true
+comments: false
 read_time: true
 ---
 
