@@ -20,8 +20,9 @@
     {% endif %}
 
     <!-- Start new comment form -->
+    <hr>
     <h1 class="title is-4">Leave a Comment</h1>
-    <h2 class="subtitle is-5">Your email address will not be published. Required fields are marked <span class="required">*</span></h2>
+    <h2 class="subtitle is-6">Your email address will not be published. Required fields are marked <span class="required">*</span></h2>
     <form id="comment-form" class="post_comments-form js-form form" method="post" action="https://api.staticman.net/v1/entry/{{ site.repository }}/{{ site.staticman.branch }}">
       <div class="field">
         <label class="label" for="comment-form-message">Comment<small class="required">*</small> <small>(<a href="https://daringfireball.net/projects/markdown/">Markdown</a> is supported)</small></label>
@@ -32,19 +33,13 @@
       <div class="field">
         <label class="label" for="comment-form-name">Name<small class="required">*</small></label>
         <div class="control">
-            <input type="text" id="comment-form-name" name="fields[name]" tabindex="2" />
+            <input class="input" type="text" id="comment-form-name" name="fields[name]" tabindex="2" />
         </div>
       </div>
       <div class="field">
         <label class="label" for="comment-form-email">Email address<small class="required">*</small></label>
         <div class="control">
-            <input type="email" id="comment-form-email" name="fields[email]" tabindex="3" />
-        </div>
-      </div>
-      <div class="field">
-        <label class="label" for="comment-form-url">Website <small>(optional)</small></label>
-        <div class="control">
-            <input type="url" id="comment-form-url" name="fields[url]" tabindex="4"/>
+            <input class="input" type="email" id="comment-form-email" name="fields[email]" tabindex="3" />
         </div>
       </div>
       <div class="field" class="hidden">
@@ -58,7 +53,7 @@
       <!-- End comment form alert messaging -->
       <div class="field">
           <div class="control">
-              <button class="button is-primary is-medium" type="submit" id="comment-form-submit" tabindex="5">Submit Comment</button>
+              <button class="button is-link" type="submit" id="comment-form-submit" tabindex="4">Submit</button>
           </div>
       </div>
     </form>
