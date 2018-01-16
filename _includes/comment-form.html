@@ -18,7 +18,7 @@
       <div class="field">
         <label class="label" for="comment-form-email"><strong>Email</strong> <small>(used for <a href="http://gravatar.com">Gravatar</a> image and reply notifications)</small></label>
         <div class="control">
-          <input type="email" id="comment-form-email" name="fields[email]">
+          <input class="input" type="email" id="comment-form-email" name="fields[email]">
         </div> 
       </div>
       <div class="field hidden" style="display: none;">
@@ -36,13 +36,17 @@
         <span class="js-notice-text"></span>
       </p>
       <!-- End comment form alert messaging -->
-      <div class="form-group">
+      <div class="field">
         <div class="g-recaptcha" data-sitekey="{{ site.reCaptcha.siteKey }}"></div>
-        <label class="comment-reply-notifications" for="comment-form-reply">
-          <input type="checkbox" id="comment-form-reply" name="options[subscribe]" value="email">
-          Notify me of replies by email.
-        </label>
-        <button type="submit" id="comment-form-submit" class="button">Send Comment</button>
+        <label class="comment-reply-notifications label" for="comment-form-reply">Notify me of replies by email.</label>
+          <div class="control">
+            <input class="input" type="checkbox" id="comment-form-reply" name="options[subscribe]" value="email">
+          </div>   
+      </div>
+      <div class="field">
+        <div class="control">
+          <button class="button is-link" type="submit" id="comment-form-submit">Submit</button>
+        </div>
       </div>
     </form>
   </div>
