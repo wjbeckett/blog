@@ -6,21 +6,21 @@
       <form id="comment-form" class="page_form js-form form" method="post" action="https://api.staticman.net/v2/entry/{{ site.repository }}/{{ site.staticman.branch }}/comments">
         <div class="field">
           <label class="label" for="comment-form-message"><strong>Comment</strong> <small>(<a href="https://kramdown.gettalong.org/quickref.html">Markdown</a> is allowed)</small></label>
-            <div class="control">
+            <p class="control">
               <textarea class="textarea" placeholder="Add a comment..." type="text" rows="6" id="comment-form-message" name="fields[message]"></textarea>
-            </div>
+            </dp>
         </div>
         <div class="field">
           <label class="label" for="comment-form-name"><strong>Name</strong></label>
-          <div class="control">
+          <p class="control">
             <input class="input" type="text" id="comment-form-name" name="fields[name]">
-          </div>
+          </p>
         </div>
         <div class="field">
           <label class="label" for="comment-form-email"><strong>Email</strong> <small>(used for <a href="http://gravatar.com">Gravatar</a> image and reply notifications)</small></label>
-          <div class="control">
+          <p class="control">
             <input class="input" type="email" id="comment-form-email" name="fields[email]">
-          </div> 
+          </p> 
         </div>
         <div class="field hidden" style="display: none;">
           <input type="hidden" name="options[origin]" value="{{ page.url | relative_url }}">
@@ -33,9 +33,10 @@
           <input type="hidden" name="options[reCaptcha][secret]" value="{{ site.reCaptcha.secret }}">
         </div>
         <!-- Start comment form alert messaging -->
-        <p class="js-notice hidden">
+        <div class="js-notice hidden notification" data-bulma="notification" data-dismiss-interval="3000">
+            <button class="delete"></button>
           <span class="js-notice-text"></span>
-        </p>
+        </div>
         <!-- End comment form alert messaging -->
         <div class="field">
           <div class="g-recaptcha" data-sitekey="{{ site.reCaptcha.siteKey }}"></div>
@@ -45,9 +46,9 @@
           </label>
         </div>
         <div class="field">
-          <div class="control">
-            <button class="button is-link" type="submit" id="comment-form-submit">Submit</button>
-          </div>
+          <p class="control">
+            <a class="button is-link" id="comment-form-submit">Submit</a>
+          </p>
         </div>
       </form>
     </div>
