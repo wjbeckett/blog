@@ -13292,8 +13292,7 @@ html.route-index .hero.is-primary a.column:hover .title strong {
   }
   
   .comment-avatar {
-   /* position: absolute;*/
-    top: 0;
+    position: absolute;
     left: 0;
     width: 3.25em;
     height: 3.25em;
