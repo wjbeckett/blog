@@ -1,15 +1,17 @@
-document.addEventListener('DOMContentLoaded', () => {
+'use strict';
+
+document.addEventListener('DOMContentLoaded', function () {
 
   // Dropdowns
 
-  const $metalinks = getAll('#meta a');
+  var $metalinks = getAll('#meta a');
 
   if ($metalinks.length > 0) {
-    $metalinks.forEach($el => {
-      $el.addEventListener('click', event => {
+    $metalinks.forEach(function ($el) {
+      $el.addEventListener('click', function (event) {
         event.preventDefault();
-        const target = $el.getAttribute('href');
-        const $target = document.getElementById(target.substring(1));
+        var target = $el.getAttribute('href');
+        var $target = document.getElementById(target.substring(1));
         $target.scrollIntoView(true);
         // window.history.replaceState(null, document.title, `${window.location.origin}${window.location.pathname}${target}`);
         return false;
@@ -19,36 +21,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Dropdowns
 
-  const $dropdowns = getAll('.dropdown:not(.is-hoverable)');
+  var $dropdowns = getAll('.dropdown:not(.is-hoverable)');
 
   if ($dropdowns.length > 0) {
-    $dropdowns.forEach($el => {
-      $el.addEventListener('click', event => {
+    $dropdowns.forEach(function ($el) {
+      $el.addEventListener('click', function (event) {
         event.stopPropagation();
         $el.classList.toggle('is-active');
       });
     });
 
-    document.addEventListener('click', event => {
+    document.addEventListener('click', function (event) {
       closeDropdowns();
     });
   }
 
   function closeDropdowns() {
-    $dropdowns.forEach($el => {
+    $dropdowns.forEach(function ($el) {
       $el.classList.remove('is-active');
     });
   }
 
   // Toggles
 
-  const $burgers = getAll('.burger');
+  var $burgers = getAll('.burger');
 
   if ($burgers.length > 0) {
-    $burgers.forEach($el => {
-      $el.addEventListener('click', () => {
-        const target = $el.dataset.target;
-        const $target = document.getElementById(target);
+    $burgers.forEach(function ($el) {
+      $el.addEventListener('click', function () {
+        var target = $el.dataset.target;
+        var $target = document.getElementById(target);
         $el.classList.toggle('is-active');
         $target.classList.toggle('is-active');
       });
@@ -57,16 +59,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Modals
 
-  const $rootEl = document.documentElement;
-  const $modals = getAll('.modal');
-  const $modalButtons = getAll('.modal-button');
-  const $modalCloses = getAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button');
+  var rootEl = document.documentElement;
+  var $modals = getAll('.modal');
+  var $modalButtons = getAll('.modal-button');
+  var $modalCloses = getAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button');
 
   if ($modalButtons.length > 0) {
-    $modalButtons.forEach($el => {
-      $el.addEventListener('click', () => {
-        const target = $el.dataset.target;
-        const $target = document.getElementById(target);
+    $modalButtons.forEach(function ($el) {
+      $el.addEventListener('click', function () {
+        var target = $el.dataset.target;
+        var $target = document.getElementById(target);
         rootEl.classList.add('is-clipped');
         $target.classList.add('is-active');
       });
@@ -74,15 +76,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if ($modalCloses.length > 0) {
-    $modalCloses.forEach($el => {
-      $el.addEventListener('click', () => {
+    $modalCloses.forEach(function ($el) {
+      $el.addEventListener('click', function () {
         closeModals();
       });
     });
   }
 
-  document.addEventListener('keydown', event => {
-    const e = event || window.event;
+  document.addEventListener('keydown', function (event) {
+    var e = event || window.event;
     if (e.keyCode === 27) {
       closeModals();
       closeDropdowns();
@@ -91,25 +93,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function closeModals() {
     rootEl.classList.remove('is-clipped');
-    $modals.forEach($el => {
+    $modals.forEach(function ($el) {
       $el.classList.remove('is-active');
     });
   }
 
   // Clipboard
 
-  const $highlights = getAll('.highlight');
-  let itemsProcessed = 0;
+  var $highlights = getAll('.highlight');
+  var itemsProcessed = 0;
 
   if ($highlights.length > 0) {
-    $highlights.forEach($el => {
-      const copyEl = '<button class="button is-small bd-copy">Copy</button>';
-      const expandEl = '<button class="button is-small bd-expand">Expand</button>';
+    $highlights.forEach(function ($el) {
+      var copyEl = '<button class="button is-small bd-copy">Copy</button>';
+      var expandEl = '<button class="button is-small bd-expand">Expand</button>';
       $el.insertAdjacentHTML('beforeend', copyEl);
 
-      const $parent = $el.parentNode;
+      var $parent = $el.parentNode;
       if ($parent && $parent.classList.contains('bd-is-more')) {
-        const showEl = '<button class="bd-show"><div><span class="icon"><i class="fa fa-code"></i></span> <strong>Show code</strong></div></button>';
+        var showEl = '<button class="bd-show"><div><span class="icon"><i class="fa fa-code"></i></span> <strong>Show code</strong></div></button>';
         $el.insertAdjacentHTML('beforeend', showEl);
       } else if ($el.firstElementChild.scrollHeight > 480 && $el.firstElementChild.clientHeight <= 480) {
         $el.insertAdjacentHTML('beforeend', expandEl);
@@ -123,37 +125,37 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function addHighlightControls() {
-    const $highlightButtons = getAll('.highlight .bd-copy, .highlight .bd-expand');
+    var $highlightButtons = getAll('.highlight .bd-copy, .highlight .bd-expand');
 
-    $highlightButtons.forEach($el => {
-      $el.addEventListener('mouseenter', () => {
+    $highlightButtons.forEach(function ($el) {
+      $el.addEventListener('mouseenter', function () {
         $el.parentNode.classList.add('bd-is-hovering');
       });
 
-      $el.addEventListener('mouseleave', () => {
+      $el.addEventListener('mouseleave', function () {
         $el.parentNode.classList.remove('bd-is-hovering');
       });
     });
 
-    const $highlightExpands = getAll('.highlight .bd-expand');
+    var $highlightExpands = getAll('.highlight .bd-expand');
 
-    $highlightExpands.forEach($el => {
-      $el.addEventListener('click', () => {
+    $highlightExpands.forEach(function ($el) {
+      $el.addEventListener('click', function () {
         $el.parentNode.firstElementChild.style.maxHeight = 'none';
       });
     });
 
-    const $highlightShows = getAll('.highlight .bd-show');
+    var $highlightShows = getAll('.highlight .bd-show');
 
-    $highlightShows.forEach($el => {
-      $el.addEventListener('click', () => {
+    $highlightShows.forEach(function ($el) {
+      $el.addEventListener('click', function () {
         $el.parentNode.parentNode.classList.remove('bd-is-more-clipped');
       });
     });
   }
 
   new Clipboard('.bd-copy', {
-    target: function(trigger) {
+    target: function target(trigger) {
       return trigger.previousSibling;
     }
   });
@@ -165,19 +167,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Scrolling
+ 
+  var navbarEl = document.getElementById('navbar');
+  var navbarBurger = document.getElementById('navbarBurger');
+  var specialShadow = document.getElementById('specialShadow');
+  var navbarHeight = 52;
+  var navbarOpen = false;
+  var pinned = false;
+  var horizon = navbarHeight;
+  var whereYouStoppedScrolling = 0;
+  var threshold = 200;
+  var scrollFactor = 0;
 
-  const navbarEl = document.getElementById('navbar');
-  const navbarBurger = document.getElementById('navbarBurger');
-  const specialShadow = document.getElementById('specialShadow');
-  const navbarHeight = 52;
-  let navbarOpen = false;
-  let pinned = false;
-  let horizon = navbarHeight;
-  let whereYouStoppedScrolling = 0;
-  let threshold = 200;
-  let scrollFactor = 0;
-
-  navbarBurger.addEventListener('click', el => {
+  navbarBurger.addEventListener('click', function (el) {
     navbarOpen = !navbarOpen;
 
     if (navbarOpen) {
@@ -195,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function goingDown(currentY) {
-    const trigger = navbarHeight;
+    var trigger = navbarHeight;
     whereYouStoppedScrolling = currentY;
 
     if (currentY > horizon) {
@@ -206,25 +208,23 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function goingUp(currentY) {
-    const trigger = 0;
+    var trigger = 0;
 
-    if (currentY < (whereYouStoppedScrolling - navbarHeight)) {
+    if (currentY < whereYouStoppedScrolling - navbarHeight) {
       horizon = currentY + navbarHeight;
     }
     translateHeader(currentY);
-    }
-  
+  }
+
   function constrainDelta(delta) {
     return Math.max(0, Math.min(delta, navbarHeight));
   }
-
+    
   function translateHeader(currentY) {
-    const delta = constrainDelta(Math.abs(currentY - horizon));
-    const translateValue = delta - navbarHeight;
-    const translateFactor = 1 + translateValue / navbarHeight;
-    let navbarStyle = `
-      transform: translateY(${translateValue}px);
-    `;
+    var delta = constrainDelta(Math.abs(currentY - horizon));
+    var translateValue = delta - navbarHeight;
+    var translateFactor = 1 + translateValue / navbarHeight;
+    var navbarStyle = '\n      transform: translateY(' + translateValue + 'px);\n    ';
 
     if (currentY > threshold) {
       scrollFactor = 1;
@@ -236,16 +236,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     navbarEl.setAttribute('style', navbarStyle);
   }
-
+    
   translateHeader(window.scrollY);
 
-  let ticking = false;
-  let lastY = 0;
-  window.addEventListener('scroll', function() {
-    const currentY = window.scrollY;
+  var ticking = false;
+  var lastY = 0;
+  window.addEventListener('scroll', function () {
+    var currentY = window.scrollY;
 
     if (!ticking) {
-      window.requestAnimationFrame(function() {
+      window.requestAnimationFrame(function () {
         upOrDown(lastY, currentY);
         ticking = false;
         lastY = currentY;
@@ -254,5 +254,151 @@ document.addEventListener('DOMContentLoaded', () => {
 
     ticking = true;
   });
+
+
+  // Static comments
+(function ($) {
+  var $comments = $('.js-comments');
+
+  $('#comment-form').submit(function () {
+    var form = this;
+
+    $(form).addClass('disabled');
+    $('#comment-form-submit').html('<svg class="icon spin"><use xlink:href="#icon-loading"></use></svg> Loading...');
+
+    $.ajax({
+      type: $(this).attr('method'),
+      url: $(this).attr('action'),
+      data: $(this).serialize(),
+      contentType: 'application/x-www-form-urlencoded',
+      success: function (data) {
+        $('#comment-form-submit').html('Submitted');
+        $('.post_comments-form .js-notification').removeClass('is-danger').addClass('is-success');
+        showAlert('<strong>Thanks for your comment!</strong> It will show on the site once it has been approved.');
+      },
+      error: function (err) {
+        console.log(err);
+        $('#comment-form-submit').html('Submit Comment');
+        $('.post_comments-form .js-notification').removeClass('is-success').addClass('is-danger');
+        showAlert('<strong>Sorry, there was an error with your submission.</strong> Please make sure all required fields have been completed and try again.');
+        $(form).removeClass('disabled');
+      }
+    });
+
+    return false;
+  });
+
+  function showAlert(message) {
+    $('.post_comments-form .js-notification').removeClass('hidden');
+    $('.post_comments-form .js-notificaiton-text').html(message);
+  }
+})(jQuery);
+
+
+// Staticman comment replies
+// modified from Wordpress https://core.svn.wordpress.org/trunk/wp-includes/js/comment-reply.js
+// Released under the GNU General Public License - https://wordpress.org/about/gpl/
+var addComment = {
+  moveForm: function(commId, parentId, respondId, postId) {
+    var div,
+      element,
+      style,
+      cssHidden,
+      t = this,
+      comm = t.I(commId),
+      respond = t.I(respondId),
+      cancel = t.I("cancel-comment-reply-link"),
+      parent = t.I("comment-replying-to"),
+      post = t.I("comment-post-slug"),
+      commentForm = respond.getElementsByTagName("form")[0];
+
+    if (!comm || !respond || !cancel || !parent || !commentForm) {
+      return;
+    }
+
+    t.respondId = respondId;
+    postId = postId || false;
+
+    if (!t.I("sm-temp-form-div")) {
+      div = document.createElement("div");
+      div.id = "sm-temp-form-div";
+      div.style.display = "none";
+      respond.parentNode.insertBefore(div, respond);
+    }
+
+    comm.parentNode.insertBefore(respond, comm.nextSibling);
+    if (post && postId) {
+      post.value = postId;
+    }
+    parent.value = parentId;
+    cancel.style.display = "";
+
+    cancel.onclick = function() {
+      var t = addComment,
+        temp = t.I("sm-temp-form-div"),
+        respond = t.I(t.respondId);
+
+      if (!temp || !respond) {
+        return;
+      }
+
+      t.I("comment-replying-to").value = null;
+      temp.parentNode.insertBefore(respond, temp);
+      temp.parentNode.removeChild(temp);
+      this.style.display = "none";
+      this.onclick = null;
+      return false;
+    };
+
+    /*
+     * Set initial focus to the first form focusable element.
+     * Try/catch used just to avoid errors in IE 7- which return visibility
+     * 'inherit' when the visibility value is inherited from an ancestor.
+     */
+    try {
+      for (var i = 0; i < commentForm.elements.length; i++) {
+        element = commentForm.elements[i];
+        cssHidden = false;
+
+        // Modern browsers.
+        if ("getComputedStyle" in window) {
+          style = window.getComputedStyle(element);
+          // IE 8.
+        } else if (document.documentElement.currentStyle) {
+          style = element.currentStyle;
+        }
+
+        /*
+         * For display none, do the same thing jQuery does. For visibility,
+         * check the element computed style since browsers are already doing
+         * the job for us. In fact, the visibility computed style is the actual
+         * computed value and already takes into account the element ancestors.
+         */
+        if (
+          (element.offsetWidth <= 0 && element.offsetHeight <= 0) ||
+          style.visibility === "hidden"
+        ) {
+          cssHidden = true;
+        }
+
+        // Skip form elements that are hidden or disabled.
+        if ("hidden" === element.type || element.disabled || cssHidden) {
+          continue;
+        }
+
+        element.focus();
+        // Stop after the first focusable element.
+        break;
+      }
+    } catch (er) {}
+
+    return false;
+  },
+
+  I: function(id) {
+    return document.getElementById(id);
+  }
+};
+
 
 });

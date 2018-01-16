@@ -7,7 +7,7 @@
     <!-- Google Analytics -->
     {% include analytics.html %}
     <!-- End Google Analytics -->
-    <link async href="{{ "/scripts/main.min.js" | relative_url }}">
+    <!--<link async href="{{ "/scripts/main.min.js" | relative_url }}">-->
     <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register("{{ "/sw.js" | relative_url }}").then(function() {
