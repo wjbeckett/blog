@@ -55,7 +55,9 @@ route: blog
           {{ content }}
         </div>
         <div class="content">
-            {% include post_comments.html %}
+          {% if page.comments == true %}
+            {% include comments.html %}
+          {% endif %}
           </div>
       </div>
     </div>

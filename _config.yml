@@ -42,6 +42,12 @@ exclude: [
 staticman:
   branch                 : "master"
 
+# reCAPTCHA keys
+reCaptcha:
+  siteKey: "6LcsGCYUAAAAAKSGqRIKy15Lyd061Lxshk3kIxDT"
+  secret: "6LcsGCYUAAAAAPpfAWUoypjOJkbO41sVCRmbbojO"
+
+
 # Icons
 
 fontawesome:   https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css

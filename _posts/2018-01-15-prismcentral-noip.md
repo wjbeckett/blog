@@ -8,6 +8,7 @@ last_modified_at:
 permalink: /2018/01/PC-noip
 categories: [nutanix]
 comments: true
+comments_locked: false
 read_time: true
 ---
 
