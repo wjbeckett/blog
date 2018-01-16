@@ -33,7 +33,6 @@
             {% endif %}
           </small>
           <br>
-          <br>
           {{ include.message | markdownify }}
         </p>
     </div>
@@ -41,7 +40,7 @@
       <nav class="level is-mobile">
         <div class="level-right">
           <a class="level-item" rel="nofollow" href="#comment-{{ include.index }}" onclick="return addComment.moveForm('comment-{{ include.index }}', '{{ include.index }}', 'respond', '{{ page.slug }}')">
-            <span class="icon is-small"><i class="fas fa-reply"></i></span>
+            <span class="icon is-small"><i class="fa fa-reply"></i></span>
             Reply to {{ include.name }}
           </a>
         </div>
