@@ -39,7 +39,7 @@
     {% unless include.replying_to != 0 or page.comments_locked == true %}
       <nav class="level is-mobile">
         <div class="level-right comment-reply">
-          <a class="level-item" rel="nofollow" href="#comment-{{ include.index }}" onclick="return addComment.moveForm('comment-{{ include.index }}', '{{ include.index }}', 'respond', '{{ page.slug }}')">
+          <a class="level-item" rel="nofollow" href="#comment-{{ include.index }}" onclick="return addcomment.moveForm('comment-{{ include.index }}', '{{ include.index }}', 'respond', '{{ page.slug }}')">
             <span class="icon is-small"><i class="fa fa-reply"></i></span>
             &nbsp; <small>Reply to {{ include.name }}</small>
           </a>
