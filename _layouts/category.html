@@ -19,32 +19,27 @@ fixed_navbar: true
           </p>
         </a>
         <div class="subtitle is-6 has-text-grey-light">
-          <div class="columns is-centered">
-            <div class="column is-narrow">
-              <span class="icon has-text-primary"><i class="fa fa-calendar"></i></span>&nbsp;&nbsp;&nbsp;<span datetime="{{ post.date | date_to_xmlschema }}">
-                {{ post.date | date: '%B %d, %Y' }}
-                {% if post.last_modified_at %}
-                (Updated: <time datetime="{{ post.last_modified_at | date_to_xmlschema }}">{{ post.last_modified_at | date: "%b %-d, %Y" }}</time>)
-                {% endif %}
-              </span>
-              <br/>
-              <span class="icon has-text-primary"><i class="fa fa-clock-o"></i></span><span>{% include read_time.html %}</span>
-            </div>
-            <div class="column is-narrow">
-              <a class="has-text-grey-light is-capitalized" href="/category/{{ category }}">
-                <span class="icon has-text-primary"><i class="fa fa-tag"></i></span>&nbsp;&nbsp;&nbsp;
-                {% for category in post.categories %}
-                <span>{{ category }}</span>
-                {% endfor %}
-              </a>
-              <br>
-              {% if post.comments == true and site.data.comments[post.slug].size > 0 %}
-              <a class="has-text-grey-light is-capitalized" href="{{ post.url }}/#comments">
-                <span class="icon has-text-primary"><i class="fa fa-comment-o"></i></span>&nbsp;&nbsp;&nbsp;<span>{{ site.data.comments[post.slug] | size }}&nbsp;Comment{% if site.data.comments[post.slug].size > 1 %}s{% endif %}</span>
-              </a>
-              {% endif %}
-            </div>
-          </div>
+          <span class="icon has-text-primary"><i class="fa fa-calendar"></i></span>&nbsp;&nbsp;&nbsp;<span datetime="{{ post.date | date_to_xmlschema }}">
+            {{ post.date | date: '%B %d, %Y' }}
+            {% if post.last_modified_at %}
+            (Updated: <time datetime="{{ post.last_modified_at | date_to_xmlschema }}">{{ post.last_modified_at | date: "%b %-d, %Y" }}</time>)
+            {% endif %}
+          </span>
+          <br/>
+          <span class="icon has-text-primary"><i class="fa fa-clock-o"></i></span><span>{% include read_time.html %}</span>
+          <br/>
+          <a class="has-text-grey-light is-capitalized" href="/category/{{ category }}">
+            <span class="icon has-text-primary"><i class="fa fa-tag"></i></span>&nbsp;&nbsp;&nbsp;
+            {% for category in post.categories %}
+            <span>{{ category }}</span>
+            {% endfor %}
+          </a>
+          <br>
+          {% if post.comments == true and site.data.comments[post.slug].size > 0 %}
+          <a class="has-text-grey-light is-capitalized" href="{{ post.url }}/#comments">
+            <span class="icon has-text-primary"><i class="fa fa-comment-o"></i></span>&nbsp;&nbsp;&nbsp;<span>{{ site.data.comments[post.slug] | size }}&nbsp;Comment{% if site.data.comments[post.slug].size > 1 %}s{% endif %}</span>
+          </a>
+          {% endif %}
         </div>
         <br/>
         <div class="content">
