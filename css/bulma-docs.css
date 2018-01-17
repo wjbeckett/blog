@@ -13340,6 +13340,8 @@ html.route-index .hero.is-primary a.column:hover .title strong {
     position: fixed;
     top: 0px;
     z-index: 99;
-    width: 50%;
-    margin: 5px auto;
+    margin-top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
 }
