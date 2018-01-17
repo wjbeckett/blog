@@ -32,11 +32,7 @@
           <input type="hidden" name="options[reCaptcha][siteKey]" value="{{ site.reCaptcha.siteKey }}">
           <input type="hidden" name="options[reCaptcha][secret]" value="{{ site.reCaptcha.secret }}">
         </div>
-        <!-- Start comment form alert messaging -->
-        <p class="hidden js-notice">
-          <span class="js-notice-text"></span>
-        </p>
-        <!-- End comment form alert messaging -->
+        
         <div class="field">
           <div class="g-recaptcha" data-sitekey="{{ site.reCaptcha.siteKey }}"></div>
           <label class="comment-reply-notifications checkbox" for="comment-form-reply">
@@ -50,6 +46,12 @@
           </p>
         </div>
       </form>
+      <!-- Start comment form alert messaging -->
+      <div id="js-notice" class="hidden notification">
+          <button id="notification-delete" class="delete"></button>
+          <!--<span class="js-notice-text"></span>-->
+      </div>
+        <!-- End comment form alert messaging -->
     </div>
   <!-- End new comment form -->
   <script async src="https://www.google.com/recaptcha/api.js"></script>
