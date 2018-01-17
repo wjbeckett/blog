@@ -13335,3 +13335,10 @@ html.route-index .hero.is-primary a.column:hover .title strong {
   .admin .comment-author-name {
     box-shadow: inset 0 -0.25em 0 rgba(255, 0, 0, 0.5);
   }  
+
+  #js-notice {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
