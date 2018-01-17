@@ -33,10 +33,10 @@
           <input type="hidden" name="options[reCaptcha][secret]" value="{{ site.reCaptcha.secret }}">
         </div>
         <!-- Start comment form alert messaging -->
-        <div class="js-notice hidden notification" data-bulma="notification" data-dismiss-interval="3000">
+        <p class="hidden js-notice notification" data-bulma="notification" data-dismiss-interval="3000">
             <button class="delete"></button>
           <span class="js-notice-text"></span>
-        </div>
+        </p>
         <!-- End comment form alert messaging -->
         <div class="field">
           <div class="g-recaptcha" data-sitekey="{{ site.reCaptcha.siteKey }}"></div>
