@@ -36,6 +36,12 @@ fixed_navbar: true
             <span>{{ category }}</span>
             {% endfor %}
           </a>
+          <br>
+          {% if post.comments == true and site.data.comments[page.slug].size > 0 %}
+          <a class"has-text-grey-light is-capitalized" href="{{ post.url }}/#comments">
+            <span class="icon has-text-primary"><i class="fa fa-comment-o"></i></span>&nbsp;&nbsp;&nbsp;<span>{{ site.data.comments[page.slug] | size }}&nbsp;Comment{% if site.data.comments[page.slug].size > 1 %}s{% endif %}</span>
+          </a>
+          {% endif %}
         </div>
         <br/>
         <div class="content">

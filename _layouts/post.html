@@ -35,7 +35,6 @@ route: blog
             (Updated: <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ page.last_modified_at | date: "%b %-d, %Y" }}</time>)
             {% endif %}
           </span>
-          
           <br/>
           <span class="icon has-text-primary"><i class="fa fa-clock-o"></i></span><span>{% include read_time.html %}</span>
           <br/>
@@ -49,6 +48,11 @@ route: blog
             {% endfor %}
             </span>
           </a>
+          {% if page.comments == true and site.data.comments[page.slug].size > 0 %}
+          <a class"has-text-grey-light is-capitalized" href="#comments">
+            <span class="icon has-text-primary"><i class="fa fa-comment-o"></i></span>&nbsp;&nbsp;&nbsp;<span>{{ site.data.comments[page.slug] | size }}&nbsp;Comment{% if site.data.comments[page.slug].size > 1 %}s{% endif %}</span>
+          </a>
+          {% endif %}
         </div>
         <br/>
         <div class="content">
