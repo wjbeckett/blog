@@ -18,31 +18,7 @@ fixed_navbar: true
             {{ post.name }}
           </p>
         </a>
-        <div class="subtitle is-6 has-text-grey-light">
-          <span class="icon has-text-primary"><i class="fa fa-calendar"></i></span>&nbsp;&nbsp;&nbsp;<span datetime="{{ post.date | date_to_xmlschema }}">
-            {{ post.date | date: '%B %d, %Y' }}
-            {% if post.last_modified_at %}
-            (Updated: <time datetime="{{ post.last_modified_at | date_to_xmlschema }}">{{ post.last_modified_at | date: "%b %-d, %Y" }}</time>)
-            {% endif %}
-          </span>
-          <br/>
-          <span class="icon has-text-primary"><i class="fa fa-clock-o"></i></span><span>{% include read_time.html %}</span>
-          <br/>
-          {% for category in post.categories %}
-          <a class="has-text-grey-light is-capitalized" href="/category/{{ category }}">
-          {% endfor %}
-            <span class="icon has-text-primary"><i class="fa fa-tag"></i></span>&nbsp;&nbsp;&nbsp;
-            {% for category in post.categories %}
-            <span>{{ category }}</span>
-            {% endfor %}
-          </a>
-          <br>
-          {% if page.comments == true and site.data.comments[page.slug].size > 0 %}
-          <a class="has-text-grey-light is-capitalized" href="{{ post.url }}/#comments">
-            <span class="icon has-text-primary"><i class="fa fa-comment-o"></i></span>&nbsp;&nbsp;&nbsp;<span>{{ site.data.comments[page.slug] | size }}&nbsp;Comment{% if site.data.comments[page.slug].size > 1 %}s{% endif %}</span>
-          </a>
-          {% endif %}
-        </div>
+        {% include page-intro.html %}
         <br/>
         <div class="content">
           {{ post.content }}

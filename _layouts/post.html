@@ -28,33 +28,7 @@ route: blog
           {{ page.name }}
         </h1>
         <br/>
-        <div class="subtitle is-6 has-text-grey-light">
-          <span class="icon has-text-primary"><i class="fa fa-calendar"></i></span>&nbsp;&nbsp;&nbsp;<span datetime="{{ page.date | date_to_xmlschema }}">
-            {{ page.date | date: '%B %d, %Y' }}
-            {% if page.last_modified_at %}
-            (Updated: <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ page.last_modified_at | date: "%b %-d, %Y" }}</time>)
-            {% endif %}
-          </span>
-          <br/>
-          <span class="icon has-text-primary"><i class="fa fa-clock-o"></i></span><span>{% include read_time.html %}</span>
-          <br/>
-          {% for category in page.categories %}
-          <a class="has-text-grey-light is-capitalized" href="/category/{{ category }}">
-          {% endfor %}
-            <span class="icon has-text-primary"><i class="fa fa-tag"></i></span>&nbsp;&nbsp;&nbsp;
-            <span>
-            {% for category in page.categories %}
-            {{ category }}
-            {% endfor %}
-            </span>
-          </a>
-          <br>
-          {% if page.comments == true and site.data.comments[page.slug].size > 0 %}
-          <a class="has-text-grey-light is-capitalized" href="#comments">
-            <span class="icon has-text-primary"><i class="fa fa-comment-o"></i></span>&nbsp;&nbsp;&nbsp;<span>{{ site.data.comments[page.slug] | size }}&nbsp;Comment{% if site.data.comments[page.slug].size > 1 %}s{% endif %}</span>
-          </a>
-          {% endif %}
-        </div>
+        {% include page-intro.html %}
         <br/>
         <div class="content">
           {{ content }}
