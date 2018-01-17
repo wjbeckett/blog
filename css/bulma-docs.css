@@ -13337,8 +13337,8 @@ html.route-index .hero.is-primary a.column:hover .title strong {
   }  
 
   #js-notice {
-    position: absolute;
-    top: 5px;
+    position: fixed;
+    top: 0;
     left: 0;
-    width: auto;
+    width: 100%;
 }
