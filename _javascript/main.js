@@ -257,48 +257,72 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   // Static comments
-(function ($) {
-  var $comments = $('.js-comments');
+(function($) {
+  var $comments = $(".js-comments");
 
-  $('#comment-form').submit(function () {
+  $("#comment-form").submit(function() {
     var form = this;
 
-    $(form).addClass('disabled');
-    $('#comment-form-submit').html('<svg class="icon spin"><use xlink:href="#icon-loading"></use></svg> Loading...');
+    $(form).addClass("disabled");
+    $("#comment-form-submit").addClass("is-loading");
 
     $.ajax({
-      type: $(this).attr('method'),
-      url: $(this).attr('action'),
+      type: $(this).attr("method"),
+      url: $(this).attr("action"),
       data: $(this).serialize(),
-      contentType: 'application/x-www-form-urlencoded',
-      success: function (data) {
-        $('#comment-form-submit').html('Submitted');
-        $('.post_comments-form .js-notification').removeClass('is-danger').addClass('is-success');
-        showAlert('<strong>Thanks for your comment!</strong> It will show on the site once it has been approved.');
+      contentType: "application/x-www-form-urlencoded",
+      success: function(data) {
+        $("#comment-form-submit")
+          .removeClass("is-loading")
+          .html("Submitted")
+          .removeClass("is-link")
+          .addClass("is-success")
+          .attr('disabled','');
+        $("#js-notice")
+          .removeClass("hidden")
+          .removeClass("is-danger")
+          .addClass("is-primary");
+        $("#js-notice .js-notice-text")
+          .html('<strong>Thanks for your comment!</strong><br> It is <a href="https://github.com/wjbeckett/blog/pulls">currently pending</a> and will show on the site once approved.');
+        $("#comment-form")[0].reset();
       },
-      error: function (err) {
+      error: function(err) {
         console.log(err);
-        $('#comment-form-submit').html('Submit Comment');
-        $('.post_comments-form .js-notification').removeClass('is-success').addClass('is-danger');
-        showAlert('<strong>Sorry, there was an error with your submission.</strong> Please make sure all required fields have been completed and try again.');
-        $(form).removeClass('disabled');
+        $("#comment-form-submit")
+          .html("Submit")
+          .removeClass("is-loading")
+          .addClass("is-link");
+        $("#js-notice")
+          .removeClass("hidden")
+          .removeClass("is-primary")
+          .addClass("is-danger");
+          $("#js-notice .js-notice-text")
+          .html("<strong>Sorry, there was an error with your submission.</strong><br> Please make sure all required fields have been completed and try again.");
+        $(form).removeClass("disabled");
       }
     });
 
     return false;
   });
-
-  function showAlert(message) {
-    $('.post_comments-form .js-notification').removeClass('hidden');
-    $('.post_comments-form .js-notificaiton-text').html(message);
-  }
 })(jQuery);
+
+
+// Notificaiton button delete function
+$("#notification-delete").click(function() {
+  $("#js-notice").addClass("hidden");
+});
+
+// Submit function
+$("#comment-form-submit").click(function() {
+  $("#comment-form").submit();
+ });
 
 
 // Staticman comment replies
 // modified from Wordpress https://core.svn.wordpress.org/trunk/wp-includes/js/comment-reply.js
 // Released under the GNU General Public License - https://wordpress.org/about/gpl/
-var addComment = {
+
+var addcomment = {
   moveForm: function(commId, parentId, respondId, postId) {
     var div,
       element,

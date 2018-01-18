@@ -71,12 +71,12 @@ gulp.task('scripts', () => {
   gulp.src([
     // Note: You need to explicitly list your scripts here in the right order
     //       to be correctly concatenated
-    './_scripts/main.js'
+    './_javascript/main.js'
   ])
     .pipe($.concat('main.min.js'))
     .pipe($.babel())
     .pipe($.uglify())
-    .pipe(gulp.dest('scripts'));
+    .pipe(gulp.dest('lib'));
 });
 
 // Minify and add prefix to css.
