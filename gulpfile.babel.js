@@ -71,7 +71,7 @@ gulp.task('scripts', () => {
   gulp.src([
     // Note: You need to explicitly list your scripts here in the right order
     //       to be correctly concatenated
-    './_javascript/main.js'
+    '_javascript/main.js'
   ])
     .pipe($.concat('main.min.js'))
     .pipe($.babel())
