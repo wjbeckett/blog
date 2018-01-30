@@ -2,7 +2,7 @@
 title: "Nutanix Software Only"
 layout: post
 introduction: "Nutanix has been speaking openly about a 'Software Only' offering for a while now but no one has been able to elaborate on it, until now."
-name: "Nutanix Software n"
+name: "Nutanix Software Only"
 date: 2018-01-25 08:00:00 +1000
 last_modified_at:
 permalink: /2018/01/ntnx-software-only
